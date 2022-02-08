@@ -1,4 +1,4 @@
-// EXO 8
+// EXO 7
 let array_01 = [1, 3, 5, 'bananaa', 8, 9],
     array_02 = [0,'bonjour', 5, 'bananaa', 8, 11, 0, 0, 0, 12],
     keyChain  = [],
@@ -23,7 +23,7 @@ alert('Les tableaux sont similaires de l\index ' + keyChain[0] + ' à l\'index '
 
 
 
-// EXO 7
+// EXO 8
 let array = [56456651, 100, 2033, 1],
 temp = 0
 
