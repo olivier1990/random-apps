@@ -1,4 +1,4 @@
-// EXO 7
+// EXO 7 
 let array_01 = [1, 3, 5, 'bananaa', 8, 9],
     array_02 = [0,'bonjour', 5, 'bananaa', 8, 11, 0, 0, 0, 12],
     keyChain  = [],
@@ -18,6 +18,7 @@ lastEl = keyChain.length-1
 
 // keyChain[lastEl] => on va chercher dernier numéro Index avec lastEl (last element)
 alert('Les tableaux sont similaires de l\index ' + keyChain[0] + ' à l\'index ' + keyChain[lastEl])
+
 
 
 
