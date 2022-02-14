@@ -585,6 +585,185 @@ console.log(array)
 
 
 
+
+
+
+
+
+
+//  EXO 6 Correction PROF
+/*6. Réalisez un programme qui enlève tous les items présents plus d’une fois et les remplacent par “Modifié”*/
+
+let myArray = [5,3,8,2,5,8,9];
+let duplicates = [];
+console.log('Technique 1, Array de départ', myArray);
+/*Technique 1 : trouver tout les items présents plus d'une fois, ensuite reparcourir le tableau et les modifier*/
+for(let i=0; i<myArray.length; i++) {
+  for (let j=0; j<myArray.length; j++) {
+    // On vérifie différent index sinon il check le même index ???
+    if (i !== j) {
+      if (myArray[i] == myArray[j]) {
+        duplicates.push(myArray[j]);
+      }
+    }
+  }
+}
+
+console.log('Duplicates', duplicates);
+
+for (let k=0; k<duplicates.length; k++) {
+  for (let l=0; l<myArray.length; l++) {
+    if (myArray[l] == duplicates[k]) {
+      myArray[l] = "modifié";
+    }
+  }
+}
+
+console.log('Array final', myArray);
+
+/* Technique 2 : Avec index */
+console.log('\n*************************\n');
+
+myArray = [5,3,8,2,5,8,9,5,5,1,8];
+console.log('Technique 2, array de départ', myArray);
+let indexes = [];
+
+for(let i=0; i<myArray.length; i++) {
+  let hasDuplicates = false;
+  // Pourquoi j=i+1 ? parce que myArray = [5,3,8,2,5,8,9,5,5,1,8]; et pas 2 array a comparer on va check l'index 0 [i] par rapport a l'index 1 [j]
+  for (let j=i+1; j<myArray.length; j++) {
+    // myArray[i] == myArray[j] veut dire myArray[0]  i=0 == myArray[1]  j=i+1
+    if (myArray[i] == myArray[j]) {
+      hasDuplicates = true;
+      indexes.push(j);
+    }
+  }
+  // Si hasDuplicates est true alors on push(i) en même temps que celui dans le if (myArray[i] == myArray[j])
+  if (hasDuplicates) {
+      indexes.push(i);
+  }
+}
+
+console.log('Indexs ou il y a des doublons', indexes);
+
+for (let i=0; i<indexes.length; i++) {
+  // Pq entre 4 brackets et pas 2 ? regarder quel effet ça fait a 2 []
+  myArray[indexes[i]] = "modifié";
+}
+// On montre le data du tableau du début myArray = [5,3,8,2,5,8,9,5,5,1,8];
+console.log('Tableau final', myArray)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  EXO 7 Correction PROF
+
+// 7. Écrivez un programme capable de comparer 2 tableaux et de détecter la plus grande
+// chaîne d’éléments similaires dans les 2 tableaux.
+// Sans utiliser de filter()
+
+// Exemple :
+// [1, 3, 5, ‘banana’, 8, 9]
+// [0, ‘bonjour’, 5, ‘banana’, 8, 11, 0, 0, 0, 12]
+// => Les tableaux sont similaires de l’index 2 à 4
+
+// Comment faire?
+// Code commenté ici : https://codepen.io/Snaj/pen/zYPNLKp
+// Attention : cet exercice est bien sûr plus complexe que les précédents et sert d’exercice de
+// dépassement, ne vous inquiétez pas si vous avez encore du mal avec la compréhension de la
+// solution.
+
+
+
+
+/*7. Écrivez un programme capable de comparer 2 tableaux et de détecter la plus grande chaîne d’éléments similaires dans les 2 tableaux.
+Sans utiliser de filter()
+*/
+
+//nos 2 tableaux de départ
+let arr1 = [1, 3, 5, 'banana', 8, 9, 0, 0, 0, 12, 5, 6];
+let arr2 = [0, 'bonjour', 5, 'banana',8, 9, 0, 1, 3, 5];
+
+/* tableau qui reprendra les indexs de la chaine en cours*/
+let newSimilar = [];
+
+/* variable qui gardera les indexs de la chaine précédente pour pouvoir la comparer avec la newSimilar, je garderai la plus grande des 2 (même principe que PP et PG)*/
+let lastSimilar = false;
+
+/*on parcourt le premier tableau, pour chaque tour du premier tableau on compare avec le tableau suivant*/
+for(let i=0; i<arr1.length; i++) {
+  
+  //je met l'élément du tableau 1 dans check pour la comparer
+  let check = arr1[i];
+  
+  //je parcours le 2eme tableau
+  for (let j=0; j<arr2.length; j++) {
+      //je vérifie si un élément du 2eme tableau correspond, si oui alors on commence une chaine similaire entre les 2, sinon on continue a parcourir le tableau 2
+      if (check == arr2[j]) {
+        let indexArr2 = j; //on garde l'index du tableau 2 en mémoire
+        newSimilar.push(j); //on ajoute a notre chaine l'élément actuel
+        
+        //ici on parcourt les 2 tableaux, index par index en parallele en commencant par l'index sur lequel on était déjà +1
+        for(let k=i+1; k<arr1.length;k++) {
+          
+          indexArr2++;
+          //on évite de regarder au dela de la taille du tableau
+          if (arr2.length > indexArr2) {
+            if (arr1[k] == arr2[indexArr2]) {
+              //la chaine continue
+              newSimilar.push(indexArr2);
+            } else {
+              // la chaine est finie
+              break;
+            }
+          } else {
+            //on a parcouru le tableau 2
+            break;
+          }
+        }
+        
+        //on compare notre nouvelle chaine avec notre précédente (si on en avait une précédente)
+        if (!lastSimilar || newSimilar.length > lastSimilar.length) {
+          //si la nouvelle chaine est plus grande alors on l'attribue
+          lastSimilar = newSimilar;
+        }
+        //on reset notre nouvelle chaine
+        newSimilar = [];
+      }   
+  }
+}
+
+//si on a une chaine alors on la montre
+if (lastSimilar) {
+  console.log('Check terminé, la plus grande chaine commune est de', lastSimilar.length, 'commence par ', arr2[lastSimilar[0]], '(index tableau 2 : ', lastSimilar[0] , '), et fini par', arr2[lastSimilar[lastSimilar.length-1]], '(index tableau 2 : ', lastSimilar[lastSimilar.length-1], ')');
+} else {
+  console.log('Aucune similarité');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 08-02-2022
 
 // 1. Conditions
