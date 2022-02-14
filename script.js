@@ -603,6 +603,7 @@ for(let i=0; i<myArray.length; i++) {
     // On vérifie différent index sinon il check le même index ???
     if (i !== j) {
       if (myArray[i] == myArray[j]) {
+        // On push le data dans duplicates
         duplicates.push(myArray[j]);
       }
     }
@@ -960,6 +961,8 @@ for (let i=array1.length-1; i >=0; i+=2){
 
 
 // b. Réalisez un tri (bulle / insertion / sélection) décroissant
+
+
 
 
 // c. Permettez à l’utilisateur d’entrer des valeurs (nombres entiers) remplissant un
