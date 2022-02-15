@@ -820,7 +820,7 @@ if(age > 0){
 }
 else{
     calculAge = age / 3;
-    console.log(calculAge);
+    console.log('Impossible');
 
 }
 
@@ -977,3 +977,122 @@ for (let i=array1.length-1; i >=0; i+=2){
 
 // e. Même question que la précédente sauf qu’il faut trier les N premiers éléments
 
+
+
+// Les 3 tris vu?
+
+// Quel est leurs similarités?
+// Que représente le “O”
+
+
+// Tri à bulle
+// O(n²)
+// Comparer répétitivement l’élément N et N+1 et les inverser s’ils ne sont pas
+// ordonnés
+// - Parcourir le tableau (i)
+// - Parcourir le tableau de 0 jusqu’à la position i-1 (j)
+// - Si j > j+1 => on échange les 2
+
+
+
+
+let myArray = [5,3,8,1];
+console.log('Unsorted', myArray);
+for(let i=0; i<myArray.length-1; i++) {
+  
+  for(let j=0; j<myArray.length-i-1; j++) {
+    console.log('i:', i,'j:', j);
+    if (myArray[j] > myArray[j+1]) {
+      let temp = myArray[j];
+      myArray[j] = myArray[j+1];
+      myArray[j+1] = temp;
+      console.log('swap', myArray);
+    }
+  }
+}
+console.log('Sorted', myArray);
+
+
+
+
+
+
+
+
+
+
+
+//les differents tris 
+
+// Tri a bulle
+
+console.log('Tri a bulle')                      // Trie de droite a gauche 
+                                                // on compare la case 0 avec la case 1 si plus plus grand on switch et ce jusqu'a la longeur du tableau -i-1
+                                                // et on recommence chaque fois une case en moins a verifier d'ou i-1      
+
+let myArray = [5,3,8,1];                        // creation du tableau
+console.log('Unsorted', myArray);               // voir le tableau dans la console
+for(let i=0; i<myArray.length-1; i++) {         // premier boucle for i = 0 , jusqu'a la longueur du tableau-1 , i++  
+  for(let j=0; j<myArray.length-i-1; j++) {     // deuxieme boucle for j = 0 , jusqu'a la longueur du tableau -i-1 (deplacement du marqueur) ,j++
+    
+    console.log('i:', i,'j:', j);               // voir les valeurs de i et de j dans la console
+    if (myArray[j] > myArray[j+1]) {            // si case 0 plus grande que case 1 au premier tour
+      
+      let temp = myArray[j];                    // mettre case 0 dans variable temporaire
+      myArray[j] = myArray[j+1];                // mettre case 1 dans case 0    
+      myArray[j+1] = temp;                      // mettre variable temporaire dans case 1
+      console.log('swap', myArray);             // voir l'etait du tableau apres chaque swap
+    }
+  }
+}
+console.log('Sorted', myArray);                 //voir le tableau trié
+
+//Tri par insertion
+
+console.log('Tri par insertion')                    // on preand la valeur de la deuxieme case, on compare avec les cases presedente si plus petit on switch                                                
+
+let myArray = [5,3,8,1];                            // creation du tableau
+console.log('Unsorted', myArray);                   // voir le tableau non trié
+for(let i = 1; i < myArray.length;i++){             // premiere boucle i=1, longueur du tableau, +11
+  for(let j = i - 1; j > -1; j--){                  // deuxieme boulce j = i-1 (0 le premier tour), jusqu'a j-1, j--
+    console.log('i:', i,'j:', j);                   // voir les valeurs de i et de j dans la console
+    if(myArray[j + 1] < myArray[j]){                // si case 1 plus petite que case 0 au premier tour
+      let temp = myArray[j+1];                      // mettre case 1 dans variable temporaire
+      myArray[j+1] = myArray[j];                    // mettre case 0 dans case 1
+      myArray[j] = temp;                            // mettre variable temporaire dans case 0
+      console.log('swap', myArray);                 // voir l'etait du tableau apres chaque swap
+    }
+  } 
+};
+console.log('Sorted', myArray);                     //voir le tableau trié
+
+//Tri par sélection
+
+console.log('Tri par sélection')                                 //Tri de gauche a droite
+                                                                // on prend la case 0 et on chercher l'element le plus petit dans le reste du tableau
+                                                                //si il y a un elemement plus petit on switch puis on recommence a la case 1  
+
+
+let myArray = [5,3,8,1];                                        // creation du tableau
+let min = 0;                                                    // creation d'un valeur minimum    
+console.log('Unsorted', myArray);                               // voir le tableau non trié
+  for (let i = 0; i < myArray.length; i++) {                    // premiere boucle i = 0 , jusqu'a la longueur du tableau, i++ 
+    min = i;                                                    // mettre la valeur de i dans min    
+
+                                                                //Trouver le plus petit dans la partie droite du tableau
+    for (let j = i + 1; j < myArray.length; j++) {              // deuxieme boucle j = i+1 jusqu'a la longueur de tableau, j++
+      if (myArray[j] < myArray[min]) {                          // si la case 1 en plus petite que la case min                            
+        min = j;                                                // mettre la valeur de j dans min
+      }
+    }
+
+                                                                //on ne remplace pas si le minimum est déjà le premier des unsorted
+    if (min !== i) {                                            // si min est different de i
+      //swap
+      let temp = myArray[i];                                    // mettre ma case 0 dans variable temporaire
+      myArray[i] = myArray[min];                                // mettre case min dans case 0    
+      myArray[min] = temp;                                      // mettre variable temp dans case min                
+
+    }
+  }
+console.log('Sorted', myArray);                                 // voir le tableau trié
