@@ -943,7 +943,30 @@ for (let i=array1.length-1; i >=0; i+=2){
 // ex : [2,5,8,2] => [2, 7 (5+2), 15 (5+2+8), 17 (...)]
 
 
+// SEB
+let array = [[5, 2, 8], [12, 24, 9], [3, 1, 8]], temp
 
+for(let i=0 ; i<array.length ; i++){
+
+    for(let j=1 ; j<array[i].length ; j++) {
+        array[i][j] += array[i][j-1]
+    }
+}
+
+for(let i=0 ; i<array.length-1; i++){
+    for(let k=0 ; k<array.length-i-1 ; k++) {
+        console.log('i:', i,'k:', k);   
+        if(array[i] > array[k+1]){
+
+            temp = array[i]
+            array[i] = array[k+1]
+            array[k+1] = temp
+        }
+    }
+}
+console.log(array)
+
+// f.
 // Pareil que le précédent, sauf que vous avez un tableau de tableaux, une fois la
 // somme faites triez les par ordre décroissant
 // ex :
@@ -958,42 +981,6 @@ for (let i=array1.length-1; i >=0; i+=2){
 // 4. Tris
 // a. Améliorez le tri à bulle tel que vu précédemment : Si lors d’un tour entier il n’a
 // pas dû effectuer de “swap” alors arrêtez l’algorithme
-
-
-// b. Réalisez un tri (bulle / insertion / sélection) décroissant
-
-
-
-
-// c. Permettez à l’utilisateur d’entrer des valeurs (nombres entiers) remplissant un
-// tableau, une fois que l’utilisateur est satisfait de ses entrées, triez le tableau
-// par ordre croissant
-
-
-// d. Créez un tableau d’entiers avec au moins 10 entrées, définissez ensuite une
-// variable “limite”, triez les N derniers éléments du tableau (N étant la limite)
-// Quel algorithme choisir et pourquoi ? Implémentez le code
-
-
-// e. Même question que la précédente sauf qu’il faut trier les N premiers éléments
-
-
-
-// Les 3 tris vu?
-
-// Quel est leurs similarités?
-// Que représente le “O”
-
-
-// Tri à bulle
-// O(n²)
-// Comparer répétitivement l’élément N et N+1 et les inverser s’ils ne sont pas
-// ordonnés
-// - Parcourir le tableau (i)
-// - Parcourir le tableau de 0 jusqu’à la position i-1 (j)
-// - Si j > j+1 => on échange les 2
-
-
 
 
 let myArray = [5,3,8,1];
@@ -1014,7 +1001,42 @@ console.log('Sorted', myArray);
 
 
 
+// b. Réalisez un tri (bulle / insertion / sélection) décroissant
 
+let myArray = [5,3,8,1];
+console.log('Unsorted', myArray);
+for(let i=0; i<myArray.length-1; i++) {
+  
+  for(let j=0; j<myArray.length-i-1; j++) {
+    console.log('i:', i,'j:', j);
+    if (myArray[j] > myArray[j+1]) {
+      let temp = myArray[j];
+      myArray[j] = myArray[j+1];
+      myArray[j+1] = temp;
+      console.log('swap', myArray);
+    }
+  }
+}
+console.log('Sorted', myArray);
+
+
+// c. Permettez à l’utilisateur d’entrer des valeurs (nombres entiers) remplissant un
+// tableau, une fois que l’utilisateur est satisfait de ses entrées, triez le tableau
+// par ordre croissant
+
+
+// d. Créez un tableau d’entiers avec au moins 10 entrées, définissez ensuite une
+// variable “limite”, triez les N derniers éléments du tableau (N étant la limite)
+// Quel algorithme choisir et pourquoi ? Implémentez le code
+
+
+// e. Même question que la précédente sauf qu’il faut trier les N premiers éléments
+
+
+// Si ca vaut 0 alors c'est un nombre premiers puisque divisible par 1 et eux-même
+if(i%1 == 0 & i%i ==0){
+  nbrPremiers += i;
+}
 
 
 
@@ -1096,3 +1118,130 @@ console.log('Unsorted', myArray);                               // voir le table
     }
   }
 console.log('Sorted', myArray);                                 // voir le tableau trié
+
+
+
+
+
+
+
+
+// Correction prof
+
+
+console.log('\n\n****** 1.B. ******');
+/*1b Réalisez le code nécessaire pour afficher une variable “âge” uniquement si elle est strictement égale en valeur et en type à 30 */
+/*Le triple égal permet de vérifier que la valeur ainsi que le type soit similaire*/
+let age = 30;
+if (age === 30) {
+  console.log('age', age);
+}
+
+
+console.log('\n\n****** 2.B. ******');
+/*2b Bouclez sur les entiers de 2 à 200, faites la somme des entiers qui sont des nombres premiers (divisible uniquement par 1 et eux-même)*/
+let somme = 0;
+for (let i=2; i<=200; i++) {
+  //on part du principe qu'il est un nombre premier
+  let isPremier = true;
+
+  //on vérifie parmis tout les entiers de i-1 à 2
+  for(let j=i-1; j>=2; j--) {
+    if (i%j === 0) {
+      //si le modulo donne 0, alors il n'est pas premier, on mets isPremier à false et on arrête de vérifier
+      isPremier = false;
+      break;
+    } 
+  }
+
+  if (isPremier) {
+    //console.log(i); //enlevez ce commentaire pour voir les nombres premiers 
+    somme+=i;
+  }
+}
+
+console.log('Somme des nombres premiers de 2 à 200 :', somme);
+
+
+console.log('\n\n****** 3.B. ******');
+/*3b Créez et parcourez un tableau d’entier, du dernier élément au premier*/
+let myArray = [5,3,8,1];
+
+for (let i=myArray.length-1; i>=0; i--) {
+  console.log(myArray[i]);
+}
+
+console.log('\n\n****** 3.D. ******');
+/*3d Créez et parcourez un tableau d’entier du premier élément au dernier en évitant les index dont le modulo 4 est 0*/
+let myOtherArray = [5, 3, 8, 1, 2, 4, 5, 6, 8, 1, 0, 2];
+
+for (let i=0; i<myOtherArray.length; i++) {
+  if (i%4) {
+    console.log('index :', i, 'valeur :', myOtherArray[i]);
+  }
+}
+
+console.log('\n\n****** 3.E. ******');
+/*3e Créez et parcourez un tableau en sommant les éléments à leurs place
+ex : [2,5,8,2] => [2, 7 (5+2), 15 (5+2+8), 17 (...)]
+*/
+
+let sumArray = [2, 5, 8, 2];
+for (let i=0; i<sumArray.length; i++) {
+  if (i) {
+    sumArray[i] += sumArray[i-1];
+  }
+}
+console.log('Tableau sommé', sumArray);
+
+console.log('\n\n****** 4.B. ******');
+/*4b Réalisez un tri (bulle / insertion / sélection) décroissant*/
+
+let bubbleSortArray = [5, 3, 8, 1];
+//tri à bulle
+console.log('avant tri à bulle', bubbleSortArray);
+for (let i=0; i<bubbleSortArray.length; i++) {
+  for (let j=0; j<bubbleSortArray.length-i-1; j++) {
+    if (bubbleSortArray[j] < bubbleSortArray[j+1]) {
+			let temp = bubbleSortArray[j];
+			bubbleSortArray[j] = bubbleSortArray[j+1]
+			bubbleSortArray[j+1] = temp;
+		}
+  }
+}
+console.log('après tri à bulle', bubbleSortArray);
+
+let insertSortArray = [5, 3, 8, 1];
+//tri par insertion
+console.log('avant tri par insertion', insertSortArray);
+for(let i = 1; i < insertSortArray.length;i++){
+  for(let j = i - 1; j > -1; j--){
+    if(insertSortArray[j + 1] > insertSortArray[j]){
+      let temp = insertSortArray[j+1];
+      insertSortArray[j+1] = insertSortArray[j];
+      insertSortArray[j] = temp;
+    }
+  }
+}
+console.log('après tri par insertion', insertSortArray);
+
+let selectSortArray = [5,3,8,1];
+//tri par sélection
+console.log('avant tri par sélection', selectSortArray);
+let max = 0;
+for (let i = 0; i < selectSortArray.length; i++) {
+  max = i;
+  for (let j = i + 1; j < selectSortArray.length; j++) {
+    if (selectSortArray[j] > selectSortArray[max]) {
+      max = j;
+    }
+  }
+
+  if (max !== i) {
+    //swap
+    let temp = selectSortArray[i];
+    selectSortArray[i] = selectSortArray[max];
+    selectSortArray[max] = temp;
+  }
+}
+console.log('après tri par sélection', selectSortArray);
