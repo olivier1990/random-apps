@@ -1391,7 +1391,26 @@ reverseArray(array1);
 // 4. Réalisez une fonction qui calcule combien de fois un nombre donné est présent dans
 // un tableau donné et renvoie cette valeur
 
+// Correction prof 
 
+let myNumbers = [1, 3, 5, 8, 2, 1];
+
+let somme = 0;
+
+for (let index=0; index<myNumbers.length; index++) {
+  if (myNumbers[index] % 2 == 0) {
+    somme = somme + myNumbers[index];
+  }
+  console.log('Tour de boucle', index, "Somme est de : ", somme);
+}
+
+console.log(somme);
+
+
+
+
+
+// Oli
 function countNumber (array){
   let duplicates = [];
   
@@ -1569,8 +1588,8 @@ divisionNumbers(30, 0);
 
 function calculator (mult, divi, addi, subs){
   // Faire un prompt et utiliser user pour mettre les int dans multiplicationNumbers
-  user = prompt('Pour faire des multiplications utiliser mult, division, divi, addition addi, soustraction subs');
-  userNumber = prompt('Entrer un nombre ');
+  let user = prompt('Pour faire des multiplications utiliser mult, division, divi, addition addi, soustraction subs');
+  let userNumber = prompt('Entrer un nombre ');
   if(user == 'mult'){
 
     function multiplicationNumbers (num1, num2){
@@ -1593,11 +1612,54 @@ calculator();
 
 
 
+
+
+
+
+
+
+
+
+
+
 // 1. Réalisez une fonction récursive permettant de calculer la factorielle d’un nombre
 // (factorielle de 5 = 5*4*3*2*1, factorielle de 7 = 7*6*5*4*3*2*1 etc)
+
+
+function facto (){
+    user = prompt('donner un nombre');
+
+
+    for (let user = 0; user <= user.length; user++) {
+        
+        let calculation *= user; 
+    }
+    return calculation
+    
+}
+
+facto(7);
+
+
 // 2. Réalisez un ensemble de fonctions permettant de vérifier si une valeur entrée dans
 // une grille de 4 par 4 respecte les règles du sudoku (voir grille plus bas)
+
+
+
 // 3. Réalisez les fonctions nécessaires pour permettre de remplir les trous de la grille
+
+function addNumber (addNumber, let case='';){
+
+    // Boucle for (2 fois ptetre)
+
+    // '' ou ' '
+    if(''){
+        // Ajouter un nombre dans une case vide += ou push
+        addNumber = case.push ;
+    }
+}
+
+
 // 4. Réalisez un générateur de grilles de sudoku de 4 par 4
 // 5. Réalisez le tout nécessaire pour générer et compléter des sudoku de 4 par
 
@@ -1609,3 +1671,87 @@ let grid = [
   [3, 2, 0, 1]
   ]
 
+
+
+
+
+// LOUIS
+// 9 x 9
+let g = [
+    [0, 7, 6, 0, 8, 0, 0 ,4 ,1],
+    [0, 2, 1, 0, 0, 0, 9 ,0 ,7],
+    [5, 0, 0, 0, 0, 0, 0 ,8 ,6],
+    [4, 0, 0, 6, 7, 9, 0 ,2 ,0],
+    [0, 8, 0, 0, 4, 0, 0 ,5 ,0],
+    [0, 6, 0, 8, 2, 5, 0 ,0 ,4],
+    [7, 4, 0, 0, 0, 0, 0 ,0 ,5],
+    [6, 0, 2, 0, 0, 0, 4 ,7 ,0],
+    [1, 9, 0, 0, 5, 0, 8 ,6 ,0],
+    ];
+    
+    // Horizontal ? 
+    function isOnLine(grid, value, lineIndex) {
+        for (let i = 0; i < grid[lineIndex].length; i++) {
+            if (grid[lineIndex][i] === value)
+                return true;
+        }
+        return false;
+    }
+    // Vertical ? 
+    function isOnColon(grid, value, colonIndex) {
+        for (let i = 0; i < grid.length; i++) {
+            if (grid[i][colonIndex] === value)
+                return true;
+        }
+        return false;
+    }
+    
+    function isOnSquare(grid, value, lineIndex, colonIndex) {
+        let s = Math.sqrt(grid.length); // le sudoku est compose de s x s carres de cote s
+        let lineStart = lineIndex - lineIndex % s;
+        let colonStart = colonIndex - colonIndex % s;
+        for (let i = 0; i < s; i++) {
+            for (let j = 0; j < s; j++) {
+                if (grid[lineStart + i][colonStart + j] === value)
+                    return true;
+            }
+        }
+        return false;
+    }
+    
+    function cloneGrid(grid) {
+        let newGrid = [];
+        for (let i = 0; i < grid.length; i++) {
+            newGrid.push([]);
+            for (let j = 0; j < grid[0].length; j++) {
+                newGrid[i][j] = grid[i][j];
+            }
+        }
+        return newGrid;
+    }
+    
+    function isValid(grid, position) {
+        if (position === grid.length * grid.length)
+            return true;
+        let colon = position % grid.length;
+        let line = (position - colon) / grid.length;
+        if (grid[line][colon] !== 0)
+            return isValid(grid, position + 1);
+        for (let i = 1; i <= grid.length; i++) {
+            if (isOnLine(grid, i, line) === false && isOnColon(grid, i, colon) === false && isOnSquare(grid, i, line, colon) === false) {
+                grid[line][colon] = i;
+                if (isValid(grid, position + 1))
+                    return true;
+            }
+        }
+        grid[line][colon] = 0;
+        return false;
+    }
+    
+    let gInitialState = cloneGrid(g);
+    
+    console.log(gInitialState);
+     
+    isValid(g, 0);
+    
+    console.log(g);
