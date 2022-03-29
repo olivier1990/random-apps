@@ -88,33 +88,33 @@
 // }
 
 // Exo2 refait
-// for (let i=1; i<=100; i++) {
+for (let i=1; i<=100; i++) {
     
-//     if( i%5==0){
-//         console.log('coucou')
-//     }
-//     if(i%7==0){
-//         console.log('hibou')
-//     }
-//     if(i%5 != 0 && i%7 !=0){
+    if( i%5==0){
+        console.log('coucou')
+    }
+    if(i%7==0){
+        console.log('hibou')
+    }
+    if(i%5 != 0 && i%7 !=0){
 
-//     }
-// } 
+    }
+} 
 
 // Exo2 correction prof
-// for(let i=1; i<=100; i++) {
-//     let message = "";
-//     if (i%5 == 0) {
-//       message+= "Coucou";
-//     }
-//     if (i%3 == 0) {
-//         message += "chouette";
-//       }
-//     if (i%7 == 0) {
-//       message += "Hibou";
-//     }
-//     message ? console.log(message) : console.log(i);
-//   }   
+for(let i=1; i<=100; i++) {
+    let message = "";
+    if (i%5 == 0) {
+      message+= "Coucou";
+    }
+    if (i%3 == 0) {
+        message += "chouette";
+      }
+    if (i%7 == 0) {
+      message += "Hibou";
+    }
+    message ? console.log(message) : console.log(i);
+  }   
   
 //   exo3
 
@@ -1126,7 +1126,7 @@ console.log('Sorted', myArray);                                 // voir le table
 
 
 
-// Correction prof
+// Correction prof EXERCICE RECAP
 
 
 console.log('\n\n****** 1.B. ******');
@@ -1245,3 +1245,367 @@ for (let i = 0; i < selectSortArray.length; i++) {
   }
 }
 console.log('après tri par sélection', selectSortArray);
+
+// Language C
+// Trouver le Nombre
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    
+    int reponse,nbr, input;
+    
+    // Créer le chiffre random
+    srand(time(NULL));
+    nbr = rand() % 100 + 1;
+    printf("%d\n", nbr);
+    
+    
+    while (reponse != nbr) {
+    
+    // input client
+    printf( "Entrer un nombre:");
+    input = getchar( );
+    printf( "\nYou entered: ");
+    putchar( input );
+    
+
+    // FIX LES PARENTHESES !!!!
+
+    if reponse == nbr{
+        printf("C'est le bon nombre !!!", nbr)
+    }
+    else if reponse < nbr{
+        printf("Le nombre est plus grand ...")
+    }
+    else{
+        printf("Le nombre est plus petit ...")  
+    }
+    return 0;
+    }
+}
+
+
+    
+// Correction prof
+// faudrait juste réadapte pour qu'on ai pas a savoir 
+// le nombre d'éléments au départ (un while au lieu du for)
+
+#include<stdio.h>
+
+int main()
+{
+    int i, N, pg,pp, elem;
+    printf ("Entrez le nombre d'éléments voulus ");
+    scanf ("%d", &elem);
+    printf ("1er nombre?");
+    scanf ("%d", &N);
+    pg = N;
+    pp=N;
+
+
+
+    i=1;
+
+    while (i <= elem -1) {
+      printf ("Autre nombre ?");
+        scanf ("%d",&N);
+        if (N>pg) {
+            pg = N;
+        }
+        
+        if (N<pp) {
+            pp = N;
+        }
+      ++i;
+    }
+
+    printf ("PG: %d", pg);
+    printf ("PP: %d", pp);
+    return 0;
+}
+
+
+for (i=1; i<= elem -1 ; i++)
+{
+    printf ("Autre nombre ?");
+    scanf ("%d",&N);
+    if (N>pg) {
+        pg = N;
+    }
+    
+    if (N<pp) {
+        pp = N;
+    }
+}
+
+// 
+// 15-03-2022
+// 
+function concat (firstname, lastname){
+  let nomComplet = firstname + "_" + lastname;
+  return nomComplet
+}
+
+
+
+
+
+// Exercices
+// 1. Réalisez une fonction prenant le nom et l’âge de la personne en entrée et retournant
+// une chaîne de caractères “{nom} a {age} ans”;
+
+function makeString ( name, age){
+  let string = name + " a " + age + " ans ";
+  return string
+}
+makeString('olivier', '20')
+
+// 2. Réalisez une fonction qui retourne vrai si le nombre entré est pair et faux s’il est
+// impair
+
+function makePair (num){
+
+  if (num % 2 ==0){
+    console.log('vrai')
+  }
+  else{
+    console.log('faux')
+  }
+}
+makePair('3')
+
+
+
+// 3. Réalisez une fonction qui prend un tableau d’entiers et qui renvoie le tableau inversé
+
+function reverseArray (array){
+  arrayReverse = array.reverse();
+  return(arrayReverse)
+}
+array1 = [4,5,6]
+reverseArray(array1);
+
+
+// 4. Réalisez une fonction qui calcule combien de fois un nombre donné est présent dans
+// un tableau donné et renvoie cette valeur
+
+
+function countNumber (array){
+  let duplicates = [];
+  
+  for(i=0; i<array.length; i++){
+    for (let j=0; j<array.length; j++) {
+      if( i !== j){
+        if (array[i] == array[j]) {
+          // On push le data dans duplicates
+          duplicates.push(array[j]);
+        }  
+      }
+    }
+  }
+// Nombre de fois présent
+console.log(array.length-2);
+// Doublon
+console.log(duplicates);
+}
+array1 = [1,3,5,7,8,3,5,7]
+countNumber(array1);
+
+
+
+// 5. Pareil que la 4 mais pour une suite de nombre 
+// [3,5,7],[1,3,5,7,8,3,5,7]
+
+
+
+
+function countNumber (array1, array2){
+  let duplicates = [];
+  
+  for(i=0; i<array.length; i++){
+    for (let j=0; j<array.length; j++) {
+      if( i !== j){
+        if (array[i] == array[j]) {
+          // On push le data dans duplicates
+          duplicates.push(array[j]);
+        }  
+      }
+    }
+  }
+// Nombre de fois présent
+console.log(array.length-2);
+// Doublon
+console.log(duplicates);
+}
+
+array1 = [3,5,7];
+array2 = [1,3,5,7,8,3,5,7]
+countNumber(array1, array2);
+
+
+
+
+
+
+
+/*7. Écrivez un programme capable de comparer 2 tableaux et de détecter la plus grande chaîne d’éléments similaires dans les 2 tableaux.
+Sans utiliser de filter()
+*/
+
+//nos 2 tableaux de départ
+let arr1 = [1, 3, 5, 'banana', 8, 9, 0, 0, 0, 12, 5, 6];
+let arr2 = [0, 'bonjour', 5, 'banana',8, 9, 0, 1, 3, 5];
+
+/* tableau qui reprendra les indexs de la chaine en cours*/
+let newSimilar = [];
+
+/* variable qui gardera les indexs de la chaine précédente pour pouvoir la comparer avec la newSimilar, je garderai la plus grande des 2 (même principe que PP et PG)*/
+let lastSimilar = false;
+
+/*on parcourt le premier tableau, pour chaque tour du premier tableau on compare avec le tableau suivant*/
+for(let i=0; i<arr1.length; i++) {
+  
+  //je met l'élément du tableau 1 dans check pour la comparer
+  let check = arr1[i];
+  
+  //je parcours le 2eme tableau
+  for (let j=0; j<arr2.length; j++) {
+      //je vérifie si un élément du 2eme tableau correspond, si oui alors on commence une chaine similaire entre les 2, sinon on continue a parcourir le tableau 2
+      if (check == arr2[j]) {
+        let indexArr2 = j; //on garde l'index du tableau 2 en mémoire
+        newSimilar.push(j); //on ajoute a notre chaine l'élément actuel
+        
+        //ici on parcourt les 2 tableaux, index par index en parallele en commencant par l'index sur lequel on était déjà +1
+        for(let k=i+1; k<arr1.length;k++) {
+          
+          indexArr2++;
+          //on évite de regarder au dela de la taille du tableau
+          if (arr2.length > indexArr2) {
+            if (arr1[k] == arr2[indexArr2]) {
+              //la chaine continue
+              newSimilar.push(indexArr2);
+            } else {
+              // la chaine est finie
+              break;
+            }
+          } else {
+            //on a parcouru le tableau 2
+            break;
+          }
+        }
+        
+        //on compare notre nouvelle chaine avec notre précédente (si on en avait une précédente)
+        if (!lastSimilar || newSimilar.length > lastSimilar.length) {
+          //si la nouvelle chaine est plus grande alors on l'attribue
+          lastSimilar = newSimilar;
+        }
+        //on reset notre nouvelle chaine
+        newSimilar = [];
+      }   
+  }
+}
+
+//si on a une chaine alors on la montre
+if (lastSimilar) {
+  console.log('Check terminé, la plus grande chaine commune est de', lastSimilar.length, 'commence par ', arr2[lastSimilar[0]], '(index tableau 2 : ', lastSimilar[0] , '), et fini par', arr2[lastSimilar[lastSimilar.length-1]], '(index tableau 2 : ', lastSimilar[lastSimilar.length-1], ')');
+} else {
+  console.log('Aucune similarité');
+}
+
+
+
+
+
+
+
+
+
+
+// 6. Réalisez les fonctions nécessaires pour faire les 4 opérations (+ - / * ) avec 2
+
+function additionNumbers (num1, num2){
+  let calculation = num1 + num2;
+  return calculation
+}
+additionNumbers(3 , 3);
+
+
+
+
+function subtractionNumbers (num1, num2){
+  let calculation = num1 - num2;
+  return calculation
+}
+subtractionNumbers(40, 3);
+
+
+
+function multiplicationNumbers (num1, num2){
+  let calculation = num1 * num2;
+  return calculation
+}
+multiplicationNumbers(4 , 4);
+
+
+
+
+
+function divisionNumbers (num1, num2){
+  if (num2 !==0){
+    let calculation = num1 / num2;
+    return calculation
+  }
+  else{
+    console.log('impossible de diviser par 0')
+  }
+}
+divisionNumbers(30, 0);
+
+// nombres donnés
+// 7. Réalisez une fonction permettant de choisir laquelle des 4 fonctions réalisées au
+// point 6 appeller dépendant de l’entrée d’un utilisateur
+
+function calculator (mult, divi, addi, subs){
+  // Faire un prompt et utiliser user pour mettre les int dans multiplicationNumbers
+  user = prompt('Pour faire des multiplications utiliser mult, division, divi, addition addi, soustraction subs');
+  userNumber = prompt('Entrer un nombre ');
+  if(user == 'mult'){
+
+    function multiplicationNumbers (num1, num2){
+      let calculation = num1 * num2;
+      return calculation
+    }
+    // Si ça ne marche pas mettre la variable user a la place
+    multiplicationNumbers(userNumber, userNumber);
+  }
+
+
+
+}
+calculator();
+
+// 8. Réalisez les fonctions nécessaire pour jouer au jeu de Nim (bâtonnets)
+// 9. Réalisez les fonctions nécessaire pour renvoyer la somme des valeurs d’un tableau
+// Exercices avancés
+
+
+
+
+// 1. Réalisez une fonction récursive permettant de calculer la factorielle d’un nombre
+// (factorielle de 5 = 5*4*3*2*1, factorielle de 7 = 7*6*5*4*3*2*1 etc)
+// 2. Réalisez un ensemble de fonctions permettant de vérifier si une valeur entrée dans
+// une grille de 4 par 4 respecte les règles du sudoku (voir grille plus bas)
+// 3. Réalisez les fonctions nécessaires pour permettre de remplir les trous de la grille
+// 4. Réalisez un générateur de grilles de sudoku de 4 par 4
+// 5. Réalisez le tout nécessaire pour générer et compléter des sudoku de 4 par
+
+//exemple de grille de 4 par 4 à trou (les 0 = pas de réponse)
+let grid = [
+  [2, 0, 0, 0],
+  [1, 0, 0, 3],
+  [4, 0, 0, 0],
+  [3, 2, 0, 1]
+  ]
+
