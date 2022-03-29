@@ -1356,7 +1356,7 @@ function concat (firstname, lastname){
 // 1. Réalisez une fonction prenant le nom et l’âge de la personne en entrée et retournant
 // une chaîne de caractères “{nom} a {age} ans”;
 
-function makeString ( name, age){
+function makeString (name, age){
   let string = name + " a " + age + " ans ";
   return string
 }
@@ -1367,7 +1367,7 @@ makeString('olivier', '20')
 
 function makePair (num){
 
-  if (num % 2 ==0){
+  if (num % 2 === 0){
     console.log('vrai')
   }
   else{
@@ -1391,20 +1391,6 @@ reverseArray(array1);
 // 4. Réalisez une fonction qui calcule combien de fois un nombre donné est présent dans
 // un tableau donné et renvoie cette valeur
 
-// Correction prof 
-
-let myNumbers = [1, 3, 5, 8, 2, 1];
-
-let somme = 0;
-
-for (let index=0; index<myNumbers.length; index++) {
-  if (myNumbers[index] % 2 == 0) {
-    somme = somme + myNumbers[index];
-  }
-  console.log('Tour de boucle', index, "Somme est de : ", somme);
-}
-
-console.log(somme);
 
 
 
@@ -1468,7 +1454,7 @@ countNumber(array1, array2);
 
 
 
-
+// Ne fait pas partie de l'exercice
 /*7. Écrivez un programme capable de comparer 2 tableaux et de détecter la plus grande chaîne d’éléments similaires dans les 2 tableaux.
 Sans utiliser de filter()
 */
@@ -1590,6 +1576,7 @@ function calculator (mult, divi, addi, subs){
   // Faire un prompt et utiliser user pour mettre les int dans multiplicationNumbers
   let user = prompt('Pour faire des multiplications utiliser mult, division, divi, addition addi, soustraction subs');
   let userNumber = prompt('Entrer un nombre ');
+  
   if(user == 'mult'){
 
     function multiplicationNumbers (num1, num2){
@@ -1675,7 +1662,7 @@ let grid = [
 
 
 
-// LOUIS
+// LOUIS SUDOKU
 // 9 x 9
 let g = [
     [0, 7, 6, 0, 8, 0, 0 ,4 ,1],
@@ -1755,3 +1742,6 @@ let g = [
     isValid(g, 0);
     
     console.log(g);
+
+
+
