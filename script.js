@@ -344,7 +344,7 @@ for(let i=1; i<=100; i++) {
 
 // Exo 6 Oli
 // 6. Réalisez un programme qui enlève tous les items présents plus d’une fois et les
-// remplacent par “Modifié”
+// remplacent par 'Modifié'
 
 
 // let array_02 = [5, 'banana', 12, 5, 3]
@@ -592,7 +592,7 @@ console.log(array)
 
 
 //  EXO 6 Correction PROF
-/*6. Réalisez un programme qui enlève tous les items présents plus d’une fois et les remplacent par “Modifié”*/
+/*6. Réalisez un programme qui enlève tous les items présents plus d’une fois et les remplacent par 'Modifié”*/
 
 let myArray = [5,3,8,2,5,8,9];
 let duplicates = [];
@@ -1745,3 +1745,219 @@ let g = [
 
 
 
+
+    
+
+// 29/03/2022
+// Fonction récursives
+// En utilisant la récursivité 
+function facto (n = 4){
+  if(n <=1){
+    return 1;
+  }
+  return n*facto(n-1)
+}
+facto();
+
+// Exo
+// Réalisez une fonction récursive permettant d'additionner 2 nombres entiers (a et b)
+
+// Vous ne disposez que des oprations suivantes :
+// -ajouter un à un entier (a+1)
+// -Soustraitre un à un entier (a-1)
+// comparer un des 2 entiers avec 0 (a>0/ a<0/a==0)
+
+// add 2 nombres
+// +1
+// -1
+// >0 < 0 ==0
+
+function sum (a, b ){
+
+  if( b !== 0){
+
+    return sum(a+1,b-1)
+    
+  }
+  return a
+  
+  
+}
+sum(2,3);
+
+// Faire en multi TO FINISH
+function multi (a, b){
+  if ( b == 0){
+
+
+    return multi()
+  }
+  return a
+}
+
+
+
+
+
+// Les dictionnaires
+// Comment accéder:
+/*
+ -au prénom de la 2ème personne ?
+
+persons[1].firstname
+
+ -à la moyenne de john doe?
+persons[0].average
+
+ -au nombres de personnes dans le tableau ?
+persons.length
+
+ -comment parcourir le tableau ?
+ -comment afficher "[nom][prenom]: moyenne de [average]" pour toutes les personnes ?
+*/
+let persons = [
+  {
+    firstname: "john",
+    lastname: "doe",
+    average: 12
+  },
+  {
+    firstname: "Marie",
+    lastname: "Smith",
+    average: 18
+  }
+]
+
+
+
+
+
+
+// 1. En partant du tableau suivant, réalisez une fonction permettant de récupérer la
+// moyenne générale:
+// => “La moyenne générale des X élèves est de Y”
+
+
+let persons = [
+  {
+    firstname: 'John',
+    lastname: 'Doe',
+    average: 16
+  },{
+    firstname: 'Marie',
+    lastname: 'Smith',
+    average: 14
+  },{
+    firstname: 'Paul',
+    lastname: 'Jones',
+    average: 12
+  },{
+    firstname: 'Jeanne',
+    lastname: 'Eleou',
+    average: 8
+  }
+  ];
+  
+
+  function avg (sum, answer, occurence){
+
+    // for (let i=0; i<persons.length; i++) {
+  
+
+    //   console.log(sum);
+     
+    // }
+    for (let i=0; i<persons.length; i++) {
+
+      sum = persons[i].average + persons[i].average;
+      // sum += persons[i];
+
+      occurence = +1;
+      
+
+      
+      answer = sum/occurence;
+
+
+
+      // console.log(persons[i].average);
+     }
+  }
+
+  avg();
+console.log(answer)
+
+
+
+  // 2. En partant de l’objet suivant, réalisez une fonction permettant de récupérer la
+  // moyenne générale:
+  // => “La moyenne générale des X élèves est de Y”
+
+
+  let persons = {
+    1: {
+    firstname: 'John',
+    lastname: 'Doe',
+    average: 16
+    },
+    2: {
+    firstname: 'Marie',
+    lastname: 'Smith',
+    average: 14
+    },
+    3: {
+    firstname: 'Paul',
+    lastname: 'Jones',
+    average: 12
+},
+4: {
+firstname: 'Jeanne',
+lastname: 'Eleou',
+average: 8
+}
+}
+
+for (let i=0; i<persons.length; i++) {
+  
+  console.log(persons[average]);
+ 
+}
+
+
+// 3. Réalisez un tri (à bulle / insertion / sélection) permettant de trier le tableau de
+// l’exercice 1 par ordre de moyenne décroissant
+
+
+
+
+// Exercices avancés
+// 1. Générer dynamiquement un objet avec clefs valeurs (valeur de type string ou int) en
+// fonction d’inputs utilisateurs
+
+
+Ex :
+//obj = {};
+clef ? 'name'
+valeur ? 'ben'
+//obj = {name: 'ben'}
+clef ? "age"
+valeur ? '29'
+//obj = {name:'ben', age:29}
+
+
+// 2. Parcourez l'entièreté des clefs d’un objet de manière récursive
+
+Ex d’objet:
+  let myObj = {
+    name: 'ben',
+    results: {
+      interro : [{
+        date: '22 mars 2022',
+        result: 8
+      },{
+        date: '12 avril 2022',
+        result: 9
+}
+]
+}
+}
