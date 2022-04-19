@@ -1870,6 +1870,7 @@ let persons = [
     for (let i=0; i<persons.length; i++) {
 
       tempSum = persons[i].average;
+      // PROBLEME ICI
       sum = tempSum + persons[i].average;
       // sum += persons[i];
 
@@ -1900,6 +1901,9 @@ console.log(answer)
 
 
 
+
+
+
   // 2. En partant de l’objet suivant, réalisez une fonction permettant de récupérer la
   // moyenne générale:
   // => “La moyenne générale des X élèves est de Y”
@@ -1920,12 +1924,12 @@ console.log(answer)
     firstname: 'Paul',
     lastname: 'Jones',
     average: 12
-},
-4: {
-firstname: 'Jeanne',
-lastname: 'Eleou',
-average: 8
-}
+    },
+    4: {
+    firstname: 'Jeanne',
+    lastname: 'Eleou',
+    average: 8
+    }
 }
 
 for (let i=0; i<persons.length; i++) {
@@ -1947,18 +1951,21 @@ for (let i=0; i<persons.length; i++) {
 
 
 Ex :
-obj = {};
+//obj = {};
+
 clef ? 'name'
 valeur ? 'ben'
-obj = {name: 'ben'}
+//obj = {name: 'ben'}
+
 clef ? "age"
 valeur ? '29'
-obj = {name:'ben', age:29}
+//obj = {name:'ben', age:29}
 
 
 // 2. Parcourez l'entièreté des clefs d’un objet de manière récursive
 
-Ex d’objet:
+// Ex d'objet:
+
   let myObj = {
     name: 'ben',
     results: {
@@ -1968,7 +1975,7 @@ Ex d’objet:
       },{
         date: '12 avril 2022',
         result: 9
-}
-]
-}
-}
+        }
+      ]
+    }
+  }
