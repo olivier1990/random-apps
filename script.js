@@ -1877,7 +1877,7 @@ let persons = [
       occurence = +i+1;
       
       // console.log(occurence);
-      console.log(sum);
+      console.log(tempSum);
       
       // answer = sum/occurence;
 
@@ -1947,13 +1947,13 @@ for (let i=0; i<persons.length; i++) {
 
 
 Ex :
-//obj = {};
+obj = {};
 clef ? 'name'
 valeur ? 'ben'
-//obj = {name: 'ben'}
+obj = {name: 'ben'}
 clef ? "age"
 valeur ? '29'
-//obj = {name:'ben', age:29}
+obj = {name:'ben', age:29}
 
 
 // 2. Parcourez l'entièreté des clefs d’un objet de manière récursive
