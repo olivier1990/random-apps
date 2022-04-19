@@ -1859,7 +1859,7 @@ let persons = [
   ];
   
 
-  function avg (sum, answer, occurence){
+  function avg (sum, answer, occurence, tempSum){
 
     // for (let i=0; i<persons.length; i++) {
   
@@ -1869,21 +1869,32 @@ let persons = [
     // }
     for (let i=0; i<persons.length; i++) {
 
-      sum = persons[i].average + persons[i].average;
+      tempSum = persons[i].average;
+      sum = tempSum + persons[i].average;
       // sum += persons[i];
 
-      occurence = +1;
-      
-
-      
-      answer = sum/occurence;
-
-
-
       // console.log(persons[i].average);
+      occurence = +i+1;
+      
+      // console.log(occurence);
+      console.log(sum);
+      
+      // answer = sum/occurence;
+
+      
+      // console.log(sum);
+
      }
+     answer = Math.floor(sum / occurence);
+
+    //  console.log(answer);
+    //  console.log(sum);
+    //  console.log(occurence);
   }
 
+
+  // VARIABLE answer ne fonctionne pas ???? avec les 2 lignes 1881 et 1883
+  // FIX variable sum, on ajoute pas correctement les persons[i].average !
   avg();
 console.log(answer)
 
