@@ -89,7 +89,7 @@
 
 // Exo2 refait
 for (let i=1; i<=100; i++) {
-    
+  num % 2
     if( i%5==0){
         console.log('coucou')
     }
@@ -1867,9 +1867,10 @@ let persons = [
     //   console.log(sum);
      
     // }
-    for (let i=0; i<persons.length; i++) {
+  for (let i=0; i<persons.length; i++) {
+    for (let j=1; i<persons.length; j++) {
 
-      tempSum = persons[i].average;
+      // tempSum = persons[i].average;
       // PROBLEME ICI
       sum = tempSum + persons[i].average;
       // sum += persons[i];
@@ -1888,11 +1889,11 @@ let persons = [
      }
      answer = Math.floor(sum / occurence);
 
-    //  console.log(answer);
-    //  console.log(sum);
-    //  console.log(occurence);
+      //  console.log(answer);
+      //  console.log(sum);
+      //  console.log(occurence);
+    }
   }
-
 
   // VARIABLE answer ne fonctionne pas ???? avec les 2 lignes 1881 et 1883
   // FIX variable sum, on ajoute pas correctement les persons[i].average !
@@ -1979,3 +1980,298 @@ valeur ? '29'
       ]
     }
   }
+
+
+
+
+
+
+
+//   Auto évaluation du 19/04/2022
+// Réalisez une fonction permettant de comparer 2 nombres (a et b) et de retourner a*b si les
+// 2 sont impairs, a-b si seulement l’un des 2 est impair et de renvoyer a+b si les 2 sont pairs
+
+
+function calcul ( a = 7, b = 9){
+
+  // 2 sont impairs
+  if (a%2 && b%2){
+  
+    return a*b
+  }
+  // 2 sont pairs
+  else if (a% 2==0 && b % 2==0){
+    
+    return a + b
+  }
+  // l’un des 2 est impair
+  else{
+
+    return a-b
+  }
+
+
+}
+calcul();
+
+
+
+
+
+
+// Réalisez un tri (au choix) permettant de trier par ordre croissant des longueurs de chaînes
+// de caractères
+
+// Ex : ['abc', 'a', 'ab', 'abcdef'] => ['a', 'ab', 'abc', 'abcdef']
+// - Avancé : si 2 chaînes sont de longueurs égales, triez les par ordre alphabétique
+
+
+
+
+
+let myobject = {
+  mykey : 'bonjour',
+  myother : 'bonsoir',
+  firstname : 'olivier'
+} 
+
+  
+
+for(let i=0; i<myobject.length-1; i++) {           
+  for(let j=0; j<myobject.length-i-1; j++) {     
+    
+                 
+    if (myobject[j] > myobject[j+1]) {            
+      
+      let temp = myobject[j];                   
+      myobject[j] = myobject[j+1];                 
+      myobject[j+1] = temp;                     
+      console.log('swap', myobject);             
+    }
+  }
+}
+console.log('Sorted', myobject);                
+
+
+
+
+// Réalisez le code nécessaire pour faire de manière récursive le calcul d’une factorielle (N!)
+
+function facto ( n = 4){
+
+  if (n <= 1){
+    return 1
+  }
+
+  return n*facto(n-1)
+
+}
+facto ();
+
+
+// Réalisez le code nécessaire pour parcourir toutes les clefs d’un objet
+// - Avancé : parcourir récursivement si une clef contient un objet ou un array
+
+
+
+
+let myobject = {
+  mykey : 'bonjour',
+  myother : 'bonsoir',
+  firstname : 'olivier'
+}
+
+
+
+
+function readObject (){
+
+  // for (let i=0; i<myobject.length; i++) {
+
+    return myobject; 
+
+  // }
+}
+
+readObject();
+
+
+
+
+
+
+
+
+
+
+// JEREM CODE
+/*
+Réalisez une fonction permettant de comparer 2 nombres (a et b) et de retourner a*b si les
+2 sont impairs, a-b si seulement l’un des 2 est impair et de renvoyer a+b si les 2 sont pairs
+*/
+
+function comp(numb1,numb2) {
+    if (numb1%2!=0 && numb2%2!=0){
+        return numb1*numb2;
+    } else if (numb1%2!=0 || numb2%2!=0){
+        return numb1-numb2
+    } else return numb1+numb2
+    };
+console.log(comp(3,2))
+console.log(comp(3,3))
+console.log(comp(4,4))
+console.log(comp(2,3))
+
+
+
+/*
+Réalisez un tri (au choix) permettant de trier par ordre croissant des longueurs de chaînes
+de caractères
+Ex : [‘abc’, ‘a’, ‘ab’, ‘abcdef’] => [‘a’, ‘ab’, ‘abc’, ‘abcdef’]
+- Avancé : si 2 chaînes sont de longueurs égales, triez les par ordre alphabétique
+*/
+
+
+function sort(array){
+    for (let i = 0; i < array.length; i++) { 
+        for (let j = 0; j < (array.length - i - 1); j++) { 
+                 if(array[j].length > array[j+1].length) {
+                         let tmp = array[j]; 
+                         array[j] = array[j+1]; 
+                         array[j+1] = tmp; 
+                    }else if(array[j].length == array[j+1].length){
+                        if (array[j] > array[j+1]){
+                        let tmp = array[j]; 
+                        array[j] = array[j+1]; 
+                        array[j+1] = tmp;
+                        }
+                    }
+        }
+    }return array;
+}
+let myArray = ['dba','a','ab','abcdef', 'abc','ad'];
+console.log(sort(myArray));
+
+
+
+/*
+Réalisez le code nécessaire pour faire de manière récursive le calcul d’une factorielle (N!)
+*/
+
+function facto(numb){
+    if (numb==0){
+        return 1
+    } else return numb * facto(numb-1);
+}
+console.log(facto(1000));
+
+
+
+/*
+Réalisez le code nécessaire pour parcourir toutes les clefs d’un objet
+- Avancé : parcourir récursivement si une clef contient un objet ou un array
+*/
+
+
+function run(obj){
+    for (let key in obj) {
+      if(typeof myObj[key] != "object")
+
+        console.log(obj[key]);
+        
+        if(typeof myObj[key]== "object"){
+          return run(myObj[key])
+        }
+    }
+}
+let myObj = {firstname: 'John',lastname: 'Doe', siblings : {
+  firstname : 'bill', lastname : 'murray'
+}};
+console.log(run(myObj));
+// console.log(typeof myObj);
+
+
+
+
+
+
+
+// Réalisez un tri (au choix) permettant de trier par ordre croissant des longueurs de chaînes
+// de caractères
+
+// Ex : ['abc', 'a', 'ab', 'abcdef'] => ['a', 'ab', 'abc', 'abcdef']
+// - Avancé : si 2 chaînes sont de longueurs égales, triez les par ordre alphabétique
+
+
+
+
+
+let myobject = {
+  mykey : 'bonjour',
+  myother : 'bonsoir',
+  firstname : 'olivier'
+} 
+
+// c'est un objet pas un tableau, il ne se parcoure pas de la même facon
+// un tableau serais plutôt let myArray = ['bonjour','bonsoir','olivier']
+
+
+for(let i=0; i<myobject.length-1; i++) {  // le lenght-1 ,n'est utile que pour la deuxième boucle, car on avec un écart de +1
+  for(let j=0; j<myobject.length-i-1; j++) {
+
+
+    if (myobject[j] > myobject[j+1]) {
+
+      let temp = myobject[j];
+      myobject[j] = myobject[j+1];
+      myobject[j+1] = temp;
+      console.log('swap', myobject);
+    }
+  }
+}
+console.log('Sorted', myobject);
+
+
+
+
+// Réalisez le code nécessaire pour faire de manière récursive le calcul d’une factorielle (N!)
+
+function facto ( n = 4){
+
+  if (n <= 1){
+    return 1
+  }
+
+  return n*facto(n-1)
+
+}
+facto ();
+
+
+// Réalisez le code nécessaire pour parcourir toutes les clefs d’un objet
+// - Avancé : parcourir récursivement si une clef contient un objet ou un array
+
+
+
+
+let myobject = {
+  mykey : 'bonjour',
+  myother : 'bonsoir',
+  firstname : 'olivier'
+}
+
+
+
+// pour parcourir un objet on utilise for (let key in obj) {
+                                      //console.log(obj[key]);}
+
+function readObject (){
+
+  // for (let i=0; i<myobject.length; i++) {
+
+    return myobject; 
+
+  // }
+}
+
+readObject();
