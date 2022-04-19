@@ -88,33 +88,33 @@
 // }
 
 // Exo2 refait
-// for (let i=1; i<=100; i++) {
+for (let i=1; i<=100; i++) {
     
-//     if( i%5==0){
-//         console.log('coucou')
-//     }
-//     if(i%7==0){
-//         console.log('hibou')
-//     }
-//     if(i%5 != 0 && i%7 !=0){
+    if( i%5==0){
+        console.log('coucou')
+    }
+    if(i%7==0){
+        console.log('hibou')
+    }
+    if(i%5 != 0 && i%7 !=0){
 
-//     }
-// } 
+    }
+} 
 
 // Exo2 correction prof
-// for(let i=1; i<=100; i++) {
-//     let message = "";
-//     if (i%5 == 0) {
-//       message+= "Coucou";
-//     }
-//     if (i%3 == 0) {
-//         message += "chouette";
-//       }
-//     if (i%7 == 0) {
-//       message += "Hibou";
-//     }
-//     message ? console.log(message) : console.log(i);
-//   }   
+for(let i=1; i<=100; i++) {
+    let message = "";
+    if (i%5 == 0) {
+      message+= "Coucou";
+    }
+    if (i%3 == 0) {
+        message += "chouette";
+      }
+    if (i%7 == 0) {
+      message += "Hibou";
+    }
+    message ? console.log(message) : console.log(i);
+  }   
   
 //   exo3
 
@@ -344,7 +344,7 @@
 
 // Exo 6 Oli
 // 6. Réalisez un programme qui enlève tous les items présents plus d’une fois et les
-// remplacent par “Modifié”
+// remplacent par 'Modifié'
 
 
 // let array_02 = [5, 'banana', 12, 5, 3]
@@ -592,7 +592,7 @@ console.log(array)
 
 
 //  EXO 6 Correction PROF
-/*6. Réalisez un programme qui enlève tous les items présents plus d’une fois et les remplacent par “Modifié”*/
+/*6. Réalisez un programme qui enlève tous les items présents plus d’une fois et les remplacent par 'Modifié”*/
 
 let myArray = [5,3,8,2,5,8,9];
 let duplicates = [];
@@ -1126,7 +1126,7 @@ console.log('Sorted', myArray);                                 // voir le table
 
 
 
-// Correction prof
+// Correction prof EXERCICE RECAP
 
 
 console.log('\n\n****** 1.B. ******');
@@ -1245,3 +1245,730 @@ for (let i = 0; i < selectSortArray.length; i++) {
   }
 }
 console.log('après tri par sélection', selectSortArray);
+
+// Language C
+// Trouver le Nombre
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    
+    int reponse,nbr, input;
+    
+    // Créer le chiffre random
+    srand(time(NULL));
+    nbr = rand() % 100 + 1;
+    printf("%d\n", nbr);
+    
+    
+    while (reponse != nbr) {
+    
+    // input client
+    printf( "Entrer un nombre:");
+    input = getchar( );
+    printf( "\nYou entered: ");
+    putchar( input );
+    
+
+    // FIX LES PARENTHESES !!!!
+
+    if reponse == nbr{
+        printf("C'est le bon nombre !!!", nbr)
+    }
+    else if reponse < nbr{
+        printf("Le nombre est plus grand ...")
+    }
+    else{
+        printf("Le nombre est plus petit ...")  
+    }
+    return 0;
+    }
+}
+
+
+    
+// Correction prof
+// faudrait juste réadapte pour qu'on ai pas a savoir 
+// le nombre d'éléments au départ (un while au lieu du for)
+
+#include<stdio.h>
+
+int main()
+{
+    int i, N, pg,pp, elem;
+    printf ("Entrez le nombre d'éléments voulus ");
+    scanf ("%d", &elem);
+    printf ("1er nombre?");
+    scanf ("%d", &N);
+    pg = N;
+    pp=N;
+
+
+
+    i=1;
+
+    while (i <= elem -1) {
+      printf ("Autre nombre ?");
+        scanf ("%d",&N);
+        if (N>pg) {
+            pg = N;
+        }
+        
+        if (N<pp) {
+            pp = N;
+        }
+      ++i;
+    }
+
+    printf ("PG: %d", pg);
+    printf ("PP: %d", pp);
+    return 0;
+}
+
+
+for (i=1; i<= elem -1 ; i++)
+{
+    printf ("Autre nombre ?");
+    scanf ("%d",&N);
+    if (N>pg) {
+        pg = N;
+    }
+    
+    if (N<pp) {
+        pp = N;
+    }
+}
+
+// 
+// 15-03-2022
+// 
+function concat (firstname, lastname){
+  let nomComplet = firstname + "_" + lastname;
+  return nomComplet
+}
+
+
+
+
+
+// Exercices
+// 1. Réalisez une fonction prenant le nom et l’âge de la personne en entrée et retournant
+// une chaîne de caractères “{nom} a {age} ans”;
+
+function makeString (name, age){
+  let string = name + " a " + age + " ans ";
+  return string
+}
+makeString('olivier', '20')
+
+// 2. Réalisez une fonction qui retourne vrai si le nombre entré est pair et faux s’il est
+// impair
+
+function makePair (num){
+
+  if (num % 2 === 0){
+    console.log('vrai')
+  }
+  else{
+    console.log('faux')
+  }
+}
+makePair('3')
+
+
+
+// 3. Réalisez une fonction qui prend un tableau d’entiers et qui renvoie le tableau inversé
+
+function reverseArray (array){
+  arrayReverse = array.reverse();
+  return(arrayReverse)
+}
+array1 = [4,5,6]
+reverseArray(array1);
+
+
+// 4. Réalisez une fonction qui calcule combien de fois un nombre donné est présent dans
+// un tableau donné et renvoie cette valeur
+
+
+
+
+
+
+// Oli
+function countNumber (array){
+  let duplicates = [];
+  
+  for(i=0; i<array.length; i++){
+    for (let j=0; j<array.length; j++) {
+      if( i !== j){
+        if (array[i] == array[j]) {
+          // On push le data dans duplicates
+          duplicates.push(array[j]);
+        }  
+      }
+    }
+  }
+// Nombre de fois présent
+console.log(array.length-2);
+// Doublon
+console.log(duplicates);
+}
+array1 = [1,3,5,7,8,3,5,7]
+countNumber(array1);
+
+
+
+// 5. Pareil que la 4 mais pour une suite de nombre 
+// [3,5,7],[1,3,5,7,8,3,5,7]
+
+
+
+
+function countNumber (array1, array2){
+  let duplicates = [];
+  
+  for(i=0; i<array.length; i++){
+    for (let j=0; j<array.length; j++) {
+      if( i !== j){
+        if (array[i] == array[j]) {
+          // On push le data dans duplicates
+          duplicates.push(array[j]);
+        }  
+      }
+    }
+  }
+// Nombre de fois présent
+console.log(array.length-2);
+// Doublon
+console.log(duplicates);
+}
+
+array1 = [3,5,7];
+array2 = [1,3,5,7,8,3,5,7]
+countNumber(array1, array2);
+
+
+
+
+
+
+// Ne fait pas partie de l'exercice
+/*7. Écrivez un programme capable de comparer 2 tableaux et de détecter la plus grande chaîne d’éléments similaires dans les 2 tableaux.
+Sans utiliser de filter()
+*/
+
+//nos 2 tableaux de départ
+let arr1 = [1, 3, 5, 'banana', 8, 9, 0, 0, 0, 12, 5, 6];
+let arr2 = [0, 'bonjour', 5, 'banana',8, 9, 0, 1, 3, 5];
+
+/* tableau qui reprendra les indexs de la chaine en cours*/
+let newSimilar = [];
+
+/* variable qui gardera les indexs de la chaine précédente pour pouvoir la comparer avec la newSimilar, je garderai la plus grande des 2 (même principe que PP et PG)*/
+let lastSimilar = false;
+
+/*on parcourt le premier tableau, pour chaque tour du premier tableau on compare avec le tableau suivant*/
+for(let i=0; i<arr1.length; i++) {
+  
+  //je met l'élément du tableau 1 dans check pour la comparer
+  let check = arr1[i];
+  
+  //je parcours le 2eme tableau
+  for (let j=0; j<arr2.length; j++) {
+      //je vérifie si un élément du 2eme tableau correspond, si oui alors on commence une chaine similaire entre les 2, sinon on continue a parcourir le tableau 2
+      if (check == arr2[j]) {
+        let indexArr2 = j; //on garde l'index du tableau 2 en mémoire
+        newSimilar.push(j); //on ajoute a notre chaine l'élément actuel
+        
+        //ici on parcourt les 2 tableaux, index par index en parallele en commencant par l'index sur lequel on était déjà +1
+        for(let k=i+1; k<arr1.length;k++) {
+          
+          indexArr2++;
+          //on évite de regarder au dela de la taille du tableau
+          if (arr2.length > indexArr2) {
+            if (arr1[k] == arr2[indexArr2]) {
+              //la chaine continue
+              newSimilar.push(indexArr2);
+            } else {
+              // la chaine est finie
+              break;
+            }
+          } else {
+            //on a parcouru le tableau 2
+            break;
+          }
+        }
+        
+        //on compare notre nouvelle chaine avec notre précédente (si on en avait une précédente)
+        if (!lastSimilar || newSimilar.length > lastSimilar.length) {
+          //si la nouvelle chaine est plus grande alors on l'attribue
+          lastSimilar = newSimilar;
+        }
+        //on reset notre nouvelle chaine
+        newSimilar = [];
+      }   
+  }
+}
+
+//si on a une chaine alors on la montre
+if (lastSimilar) {
+  console.log('Check terminé, la plus grande chaine commune est de', lastSimilar.length, 'commence par ', arr2[lastSimilar[0]], '(index tableau 2 : ', lastSimilar[0] , '), et fini par', arr2[lastSimilar[lastSimilar.length-1]], '(index tableau 2 : ', lastSimilar[lastSimilar.length-1], ')');
+} else {
+  console.log('Aucune similarité');
+}
+
+
+
+
+
+
+
+
+
+
+// 6. Réalisez les fonctions nécessaires pour faire les 4 opérations (+ - / * ) avec 2
+
+function additionNumbers (num1, num2){
+  let calculation = num1 + num2;
+  return calculation
+}
+additionNumbers(3 , 3);
+
+
+
+
+function subtractionNumbers (num1, num2){
+  let calculation = num1 - num2;
+  return calculation
+}
+subtractionNumbers(40, 3);
+
+
+
+function multiplicationNumbers (num1, num2){
+  let calculation = num1 * num2;
+  return calculation
+}
+multiplicationNumbers(4 , 4);
+
+
+
+
+
+function divisionNumbers (num1, num2){
+  if (num2 !==0){
+    let calculation = num1 / num2;
+    return calculation
+  }
+  else{
+    console.log('impossible de diviser par 0')
+  }
+}
+divisionNumbers(30, 0);
+
+// nombres donnés
+// 7. Réalisez une fonction permettant de choisir laquelle des 4 fonctions réalisées au
+// point 6 appeller dépendant de l’entrée d’un utilisateur
+
+function calculator (mult, divi, addi, subs){
+  // Faire un prompt et utiliser user pour mettre les int dans multiplicationNumbers
+  let user = prompt('Pour faire des multiplications utiliser mult, division, divi, addition addi, soustraction subs');
+  let userNumber = prompt('Entrer un nombre ');
+  
+  if(user == 'mult'){
+
+    function multiplicationNumbers (num1, num2){
+      let calculation = num1 * num2;
+      return calculation
+    }
+    // Si ça ne marche pas mettre la variable user a la place
+    multiplicationNumbers(userNumber, userNumber);
+  }
+
+
+
+}
+calculator();
+
+// 8. Réalisez les fonctions nécessaire pour jouer au jeu de Nim (bâtonnets)
+// 9. Réalisez les fonctions nécessaire pour renvoyer la somme des valeurs d’un tableau
+// Exercices avancés
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1. Réalisez une fonction récursive permettant de calculer la factorielle d’un nombre
+// (factorielle de 5 = 5*4*3*2*1, factorielle de 7 = 7*6*5*4*3*2*1 etc)
+
+
+function facto (){
+    user = prompt('donner un nombre');
+
+
+    for (let user = 0; user <= user.length; user++) {
+        
+        let calculation *= user; 
+    }
+    return calculation
+    
+}
+
+facto(7);
+
+
+// 2. Réalisez un ensemble de fonctions permettant de vérifier si une valeur entrée dans
+// une grille de 4 par 4 respecte les règles du sudoku (voir grille plus bas)
+
+
+
+// 3. Réalisez les fonctions nécessaires pour permettre de remplir les trous de la grille
+
+function addNumber (addNumber, let case='';){
+
+    // Boucle for (2 fois ptetre)
+
+    // '' ou ' '
+    if(''){
+        // Ajouter un nombre dans une case vide += ou push
+        addNumber = case.push ;
+    }
+}
+
+
+// 4. Réalisez un générateur de grilles de sudoku de 4 par 4
+// 5. Réalisez le tout nécessaire pour générer et compléter des sudoku de 4 par
+
+//exemple de grille de 4 par 4 à trou (les 0 = pas de réponse)
+let grid = [
+  [2, 0, 0, 0],
+  [1, 0, 0, 3],
+  [4, 0, 0, 0],
+  [3, 2, 0, 1]
+  ]
+
+
+
+
+
+// LOUIS SUDOKU
+// 9 x 9
+let g = [
+    [0, 7, 6, 0, 8, 0, 0 ,4 ,1],
+    [0, 2, 1, 0, 0, 0, 9 ,0 ,7],
+    [5, 0, 0, 0, 0, 0, 0 ,8 ,6],
+    [4, 0, 0, 6, 7, 9, 0 ,2 ,0],
+    [0, 8, 0, 0, 4, 0, 0 ,5 ,0],
+    [0, 6, 0, 8, 2, 5, 0 ,0 ,4],
+    [7, 4, 0, 0, 0, 0, 0 ,0 ,5],
+    [6, 0, 2, 0, 0, 0, 4 ,7 ,0],
+    [1, 9, 0, 0, 5, 0, 8 ,6 ,0],
+    ];
+    
+    // Horizontal ? 
+    function isOnLine(grid, value, lineIndex) {
+        for (let i = 0; i < grid[lineIndex].length; i++) {
+            if (grid[lineIndex][i] === value)
+                return true;
+        }
+        return false;
+    }
+    // Vertical ? 
+    function isOnColon(grid, value, colonIndex) {
+        for (let i = 0; i < grid.length; i++) {
+            if (grid[i][colonIndex] === value)
+                return true;
+        }
+        return false;
+    }
+    
+    function isOnSquare(grid, value, lineIndex, colonIndex) {
+        let s = Math.sqrt(grid.length); // le sudoku est compose de s x s carres de cote s
+        let lineStart = lineIndex - lineIndex % s;
+        let colonStart = colonIndex - colonIndex % s;
+        for (let i = 0; i < s; i++) {
+            for (let j = 0; j < s; j++) {
+                if (grid[lineStart + i][colonStart + j] === value)
+                    return true;
+            }
+        }
+        return false;
+    }
+    
+    function cloneGrid(grid) {
+        let newGrid = [];
+        for (let i = 0; i < grid.length; i++) {
+            newGrid.push([]);
+            for (let j = 0; j < grid[0].length; j++) {
+                newGrid[i][j] = grid[i][j];
+            }
+        }
+        return newGrid;
+    }
+    
+    function isValid(grid, position) {
+        if (position === grid.length * grid.length)
+            return true;
+        let colon = position % grid.length;
+        let line = (position - colon) / grid.length;
+        if (grid[line][colon] !== 0)
+            return isValid(grid, position + 1);
+        for (let i = 1; i <= grid.length; i++) {
+            if (isOnLine(grid, i, line) === false && isOnColon(grid, i, colon) === false && isOnSquare(grid, i, line, colon) === false) {
+                grid[line][colon] = i;
+                if (isValid(grid, position + 1))
+                    return true;
+            }
+        }
+        grid[line][colon] = 0;
+        return false;
+    }
+    
+    let gInitialState = cloneGrid(g);
+    
+    console.log(gInitialState);
+     
+    isValid(g, 0);
+    
+    console.log(g);
+
+
+
+
+    
+
+// 29/03/2022
+// Fonction récursives
+// En utilisant la récursivité 
+function facto (n = 4){
+  if(n <=1){
+    return 1;
+  }
+  return n*facto(n-1)
+}
+facto();
+
+// Exo
+// Réalisez une fonction récursive permettant d'additionner 2 nombres entiers (a et b)
+
+// Vous ne disposez que des oprations suivantes :
+// -ajouter un à un entier (a+1)
+// -Soustraitre un à un entier (a-1)
+// comparer un des 2 entiers avec 0 (a>0/ a<0/a==0)
+
+// add 2 nombres
+// +1
+// -1
+// >0 < 0 ==0
+
+function sum (a, b ){
+
+  if( b !== 0){
+
+    return sum(a+1,b-1)
+    
+  }
+  return a
+  
+  
+}
+sum(2,3);
+
+// Faire en multi TO FINISH
+function multi (a, b){
+  if ( b == 0){
+
+
+    return multi()
+  }
+  return a
+}
+
+
+
+
+
+// Les dictionnaires
+// Comment accéder:
+/*
+ -au prénom de la 2ème personne ?
+
+persons[1].firstname
+
+ -à la moyenne de john doe?
+persons[0].average
+
+ -au nombres de personnes dans le tableau ?
+persons.length
+
+ -comment parcourir le tableau ?
+ -comment afficher "[nom][prenom]: moyenne de [average]" pour toutes les personnes ?
+*/
+let persons = [
+  {
+    firstname: "john",
+    lastname: "doe",
+    average: 12
+  },
+  {
+    firstname: "Marie",
+    lastname: "Smith",
+    average: 18
+  }
+]
+
+
+
+
+
+
+// 1. En partant du tableau suivant, réalisez une fonction permettant de récupérer la
+// moyenne générale:
+// => “La moyenne générale des X élèves est de Y”
+
+
+let persons = [
+  {
+    firstname: 'John',
+    lastname: 'Doe',
+    average: 16
+  },{
+    firstname: 'Marie',
+    lastname: 'Smith',
+    average: 14
+  },{
+    firstname: 'Paul',
+    lastname: 'Jones',
+    average: 12
+  },{
+    firstname: 'Jeanne',
+    lastname: 'Eleou',
+    average: 8
+  }
+  ];
+  
+
+  function avg (sum, answer, occurence, tempSum){
+
+    // for (let i=0; i<persons.length; i++) {
+  
+
+    //   console.log(sum);
+     
+    // }
+    for (let i=0; i<persons.length; i++) {
+
+      tempSum = persons[i].average;
+      sum = tempSum + persons[i].average;
+      // sum += persons[i];
+
+      // console.log(persons[i].average);
+      occurence = +i+1;
+      
+      // console.log(occurence);
+      console.log(sum);
+      
+      // answer = sum/occurence;
+
+      
+      // console.log(sum);
+
+     }
+     answer = Math.floor(sum / occurence);
+
+    //  console.log(answer);
+    //  console.log(sum);
+    //  console.log(occurence);
+  }
+
+
+  // VARIABLE answer ne fonctionne pas ???? avec les 2 lignes 1881 et 1883
+  // FIX variable sum, on ajoute pas correctement les persons[i].average !
+  avg();
+console.log(answer)
+
+
+
+  // 2. En partant de l’objet suivant, réalisez une fonction permettant de récupérer la
+  // moyenne générale:
+  // => “La moyenne générale des X élèves est de Y”
+
+
+  let persons = {
+    1: {
+    firstname: 'John',
+    lastname: 'Doe',
+    average: 16
+    },
+    2: {
+    firstname: 'Marie',
+    lastname: 'Smith',
+    average: 14
+    },
+    3: {
+    firstname: 'Paul',
+    lastname: 'Jones',
+    average: 12
+},
+4: {
+firstname: 'Jeanne',
+lastname: 'Eleou',
+average: 8
+}
+}
+
+for (let i=0; i<persons.length; i++) {
+  
+  console.log(persons[average]);
+ 
+}
+
+
+// 3. Réalisez un tri (à bulle / insertion / sélection) permettant de trier le tableau de
+// l’exercice 1 par ordre de moyenne décroissant
+
+
+
+
+// Exercices avancés
+// 1. Générer dynamiquement un objet avec clefs valeurs (valeur de type string ou int) en
+// fonction d’inputs utilisateurs
+
+
+Ex :
+//obj = {};
+clef ? 'name'
+valeur ? 'ben'
+//obj = {name: 'ben'}
+clef ? "age"
+valeur ? '29'
+//obj = {name:'ben', age:29}
+
+
+// 2. Parcourez l'entièreté des clefs d’un objet de manière récursive
+
+Ex d’objet:
+  let myObj = {
+    name: 'ben',
+    results: {
+      interro : [{
+        date: '22 mars 2022',
+        result: 8
+      },{
+        date: '12 avril 2022',
+        result: 9
+}
+]
+}
+}
