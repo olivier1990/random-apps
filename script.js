@@ -2275,3 +2275,319 @@ function readObject (){
 }
 
 readObject();
+
+/************** */
+// 03-05-2022
+/********* */
+
+let linkedlist = {
+  head: {
+    value: "je suis le premier node, la 'head'",
+    next: {
+      value: "je suis le 2eme node",
+      next: {
+        value: "je suis le dernier node, le 'tail'",
+        next: null
+      }
+    }
+  }
+}
+
+linkedlist.print = function () {
+  let current = this.head;
+  while (current) {
+    console.log(current.value);
+    current = current.next;
+  }
+}
+
+linkedlist.prepend = function (node) {
+  node.next = this.head; //l’ancienne head devient le next
+  this.head = node; //ce node est maintenant la head
+  return linkedlist;
+}
+
+
+let new_node = {
+  value: "Bonjour, je suis un nouveau noeud",
+  next: null
+};
+
+linkedlist.prepend(new_node);
+linkedlist.print();
+
+
+
+// Correction prof de l'exo juste au dessus
+
+let linkedlist = {
+  head: {
+    value: "je suis le premier node, la 'head'",
+    next: {
+      value: "je suis le 2eme node",
+      next: {
+        value: "je suis le dernier node, le 'tail'",
+        next: null
+      }
+    }
+  }
+}
+
+linkedlist.print = function  () {
+  let current = this.head;
+  while (current) {
+    console.log(current.value);
+    current = current.next;
+  }
+}
+
+linkedlist.prepend = function (node) {
+  node.next = this.head; //l’ancienne head devient le next
+  this.head = node; //ce node est maintenant la head
+}
+
+
+let new_node = {
+  value: "Bonjour, je suis un nouveau noeud",
+  next: null
+};
+
+linkedlist.prepend(new_node);
+linkedlist.print();
+
+
+
+
+
+
+
+
+// New EXO
+// Réalisez la fonction create_node : qui retourne un nouveau noeud
+
+let linkedlist = {
+  head: {
+    value: "je suis le premier node, la 'head'",
+    next: {
+      value: "je suis le 2eme node",
+      next: {
+        value: "je suis le dernier node, le 'tail'",
+        next: null
+      }
+    }
+  }
+}
+
+// linkedlist.createNode = function () {
+//   let new_node =  {
+//     value: "test",
+//     next: null
+//   }
+// }
+
+// linkedlist.createNode = function (node) {
+//     new_node = {
+//     value: "Bonjour, je suis un nouveau noeud",
+//     next: null
+//   };
+//   this.head = node;
+//   console.log(node);
+// }
+
+// linkedlist.createNode()
+
+// linkedlist.createNode = function () {
+//     let new_node = {
+//     value: value,
+//     next: null
+//   };
+//   return new_node
+// }
+
+// let node =  createNode("je suis un nouveau noeud")
+
+// linkedlist.createNode()
+
+linkedlist.createNode = function (value) {
+    let new_node = {
+    value: value,
+    next: null
+  };
+  return new_node
+}
+
+linkedlist.createNode()
+
+/* Correction Prof, le code est plus propre*/
+function create_node (value) {
+  return {
+    value: value,
+    next: null,
+  };
+}
+
+/*** */
+// Réalisez la fonction insert_at : pour insérer un nouveau noeud dans votre liste à l’endroit choisi
+/*** */
+
+let linkedlist = {
+  head: {
+    value: "je suis le premier node, la 'head'",
+    next: {
+      value: "je suis le 2eme node",
+      next: {
+        value: "je suis le dernier node, le 'tail'",
+        next: null
+      }
+    }
+  }
+}
+
+linkedlist.insert_at = function (node) {
+  
+  node.next = this.head;
+
+  this.head = node;
+
+  return this.head;
+}
+
+linkedlist.insert_at()
+
+
+// data du prof a changer 
+
+linkedlist.print = function  () {
+  let current = this.head;
+  while (current) {
+    console.log(current.value);
+    current = current.next;
+  }
+}
+
+linkedlist.prepend = function (node) {
+  node.next = this.head; //l’ancienne head devient le next
+  this.head = node; //ce node est maintenant la head
+}
+// Ajouter a la fin de la liste
+linkedlist.append = function (node) {
+    let current = this.head;
+    while (current) {
+      if (!current.next) {
+        break;
+      }
+      current = current.next;
+    }
+    current.next = node;
+    node.next = null;
+}
+
+
+let new_node = {
+  value: "Bonjour, je suis un nouveau noeud",
+  next: null
+};
+
+linkedlist.prepend(new_node);
+linkedlist.print();
+
+let my_newest_node = {
+  value: "Bonjour, je veux aller au bout",
+  next: null
+};
+
+linkedlist.append(my_newest_node);
+linkedlist.print();
+
+// END prof
+
+
+// insert_at refait avec le code du prof
+
+let linkedlist = {
+  head: {
+    value: "je suis le premier node, la 'head'",
+    next: {
+      value: "je suis le 2eme node",
+      next: {
+        value: "je suis le dernier node, le 'tail'",
+        next: null
+      }
+    }
+  }
+}
+
+// linkedlist.insert_at = function (node) {
+//   let current = this.head;
+//   while (current) {
+//     if (!current.next) {
+//       break;
+//     }
+//     current = current.next;
+//   }
+//   current.next = node;
+//   node.next = null;
+// }
+
+// let my_newest_node = {
+//   value: "Bonjour, je veux aller au bout",
+//   next: null
+// };
+
+// linkedlist.insert_at(my_newest_node)
+
+linkedlist.goTo = function(index){
+  let counter = 0;
+  let node = this.head;
+  while (node) {
+      if (counter === index) {
+         return node;
+      }
+      counter++;
+      node = node.next;
+  }
+  return null;
+}
+
+
+
+
+linkedlist.insert_at = function (node, index) {
+  let current = this.head;
+
+  // si la liste est vide on l'ajoute
+  if (!this.head) {
+    this.head = linkedlist;
+    return;
+  }
+
+  // insert Position HEAD
+  if (index === 0) {
+    this.head = linkedlist;
+    return;
+ }
+
+
+
+  // else, use getAt() to find the previous node.
+  const previous = this.goTo(index - 1);
+  let newNode = linkedlist;
+  newNode.next = previous.next;
+  previous.next = newNode;       
+
+  return this.head
+
+}
+
+let my_newest_node = {
+  value: "Bonjour, je veux aller au bout",
+  next: null
+};
+
+linkedlist.insert_at(my_newest_node)
+
+
+// remove_first : pour enlever le premier noeud de votre liste
+
+
+
