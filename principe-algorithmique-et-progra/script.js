@@ -2598,24 +2598,113 @@ linkedlist.insert_at(my_newest_node)
 
 
 
+// Créer une liste qui a la classe ma-liste avec 5 list items dedans
 
-// 1ER EXO
+
+
+
+
+<ul class="ma-liste">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+
+
+<style>
+ma-liste {
+  text-align: center;
+  color: red;
+} 
+</style>
+
+
+
+
+// Créer un input ayant les classes test1 et test2 ainsi que l'id super-input
+
+<input type="text" class="test1 test2" id="super-input" name="fname"><br>
+
+
+<style>
+test1 {
+  text-align: center;
+  color: red;
+} 
+
+test2 {
+  text-align: center;
+  color: red;
+} 
+</style>
+
+
+
+{/* Créer un div avec la classe mon-div contenant une balise h2 avec l'id mon-titre */}
+
+
+<div class="mon-div">
+  <h2 id="mon-titre"></h2>
+</div>
+
+
+<style>
+mon-div {
+  text-align: center;
+  color: red;
+} 
+</style>
+
+
+
+
+<button class="my-button">Mon Bouton</button>
+
+
+
+
 let my_button = document.querySelector("button.my-button");
 
 my_button.addEventListener("click", clickbtn);
 
 function clickbtn () {
-    console.log("CLICK !", this);
+  console.log("CLICK !");
 }
+
+
+
+
+
+<button class="my-button">Mon Bouton</button>
+
+<button class="text">Changer texte et couleur</button>
+
+
+
+
+
+<p class="text"> Ceci est un texte a modifié</p>
+
+
+
+
+
+
+// 1ER EXO
+// let my_button = document.querySelector("button.my-button");
+
+// my_button.addEventListener("click", clickbtn);
+
+// function clickbtn () {
+//     console.log("CLICK !", this);
+// }
 
 // 2eme EXO
 
 let my_paragraph = document.querySelector("p.text");
 
-
-let my_button02 = document.querySelector("button02")
-
-my_button02.addEventListener("click", changetext);
+my_paragraph.addEventListener("click", changetext);
 
 function changetext () {
   
@@ -2630,25 +2719,5 @@ my_paragraph.innerHTML = "Bonjour";
 
 
 
-// Capturer le double click sur un bouton, changer le texte du bouton au click
-
-
-
-// Capturer le click sur un bouton, récupérer la valeur d’un input et l’afficher
-// comme texte du bouton
-
-
-
-// Capturer un blur sur un input, ajouter le contenu de l’input dans un
-// paragraphe et vider l’input
-// => concatener les valeurs dans le paragraphe au lieu de l’effacer
-
-
-// Changer la couleur de fond du body lors d’un mouseenter sur bouton
-
-
-
-// Changer la couleur du texte du body en fonction d’une valeur fournie par
-// l’utilisateur
 
 
