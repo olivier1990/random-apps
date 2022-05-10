@@ -2599,7 +2599,7 @@ linkedlist.insert_at(my_newest_node)
 
 
 
-// 1ER EXO
+// 4eme EXO
 let my_button = document.querySelector("button.my-button");
 
 my_button.addEventListener("click", clickbtn);
@@ -2608,7 +2608,7 @@ function clickbtn () {
     console.log("CLICK !", this);
 }
 
-// 2eme EXO
+// 5eme EXO
 
 let my_paragraph = document.querySelector("p.text");
 
@@ -2629,7 +2629,6 @@ my_paragraph.innerHTML = "Bonjour";
 
 
 
-
 // Capturer le double click sur un bouton, changer le texte du bouton au click
 
 
@@ -2644,7 +2643,47 @@ my_paragraph.innerHTML = "Bonjour";
 // => concatener les valeurs dans le paragraphe au lieu de l’effacer
 
 
+
+
+
+
+
+
+
+
+
+
+
 // Changer la couleur de fond du body lors d’un mouseenter sur bouton
+
+
+
+let my_paragraph = document.querySelector("p.text");
+
+
+let my_button02 = document.querySelector("button02")
+
+my_button02.addEventListener("click", changetext);
+
+function changetext () {
+  
+ 
+my_paragraph.innerHTML = "Bonjour";
+  my_paragraph.style.color = "blue";
+  
+}
+
+
+
+
+function mouseEnter() {
+  document.getElementById("demo").style.color = "red";
+}
+
+function mouseLeave() {
+  document.getElementById("demo").style.color = "black";
+}
+
 
 
 
