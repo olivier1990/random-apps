@@ -2619,7 +2619,7 @@ my_button02.addEventListener("click", changetext);
 
 function changetext () {
   
- 
+
 my_paragraph.innerHTML = "Bonjour";
   my_paragraph.style.color = "blue";
   
@@ -2656,38 +2656,28 @@ my_paragraph.innerHTML = "Bonjour";
 
 // Changer la couleur de fond du body lors d’un mouseenter sur bouton
 
+// let my_paragraph = document.querySelector("mouse-enter");
 
+let my_button99 = document.querySelector(".mouse-enter")
 
-let my_paragraph = document.querySelector("p.text");
+my_button99.addEventListener("mouseenter", colorMouseEnter);
 
+function colorMouseEnter () {
 
-let my_button02 = document.querySelector("button02")
-
-my_button02.addEventListener("click", changetext);
-
-function changetext () {
-  
- 
-my_paragraph.innerHTML = "Bonjour";
-  my_paragraph.style.color = "blue";
+  document.body.style.backgroundColor = "blue";
   
 }
-
-
-
-
-function mouseEnter() {
-  document.getElementById("demo").style.color = "red";
-}
-
-function mouseLeave() {
-  document.getElementById("demo").style.color = "black";
-}
-
 
 
 
 // Changer la couleur du texte du body en fonction d’une valeur fournie par
 // l’utilisateur
 
+
+let my_button98 = document.querySelector("input.color-input")
+
+function colorOnInput (){
+
+  document.body.style.color = my_button98;
+}
 
