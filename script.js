@@ -2595,3 +2595,129 @@ linkedlist.insert_at(my_newest_node)
 
 
 // 10/05-2022
+
+
+
+// Créer une liste qui a la classe ma-liste avec 5 list items dedans
+
+
+
+
+
+<ul class="ma-liste">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+
+
+<style>
+ma-liste {
+  text-align: center;
+  color: red;
+} 
+</style>
+
+
+
+
+// Créer un input ayant les classes test1 et test2 ainsi que l'id super-input
+
+<input type="text" class="test1 test2" id="super-input" name="fname"><br>
+
+
+<style>
+test1 {
+  text-align: center;
+  color: red;
+} 
+
+test2 {
+  text-align: center;
+  color: red;
+} 
+</style>
+
+
+
+{/* Créer un div avec la classe mon-div contenant une balise h2 avec l'id mon-titre */}
+
+
+<div class="mon-div">
+  <h2 id="mon-titre"></h2>
+</div>
+
+
+<style>
+mon-div {
+  text-align: center;
+  color: red;
+} 
+</style>
+
+
+
+
+<button class="my-button">Mon Bouton</button>
+
+
+
+
+let my_button = document.querySelector("button.my-button");
+
+my_button.addEventListener("click", clickbtn);
+
+function clickbtn () {
+  console.log("CLICK !");
+}
+
+
+
+
+
+<button class="my-button">Mon Bouton</button>
+
+<button class="text">Changer texte et couleur</button>
+
+
+
+
+
+<p class="text"> Ceci est un texte a modifié</p>
+
+
+
+
+
+
+// 1ER EXO
+// let my_button = document.querySelector("button.my-button");
+
+// my_button.addEventListener("click", clickbtn);
+
+// function clickbtn () {
+//     console.log("CLICK !", this);
+// }
+
+// 2eme EXO
+
+let my_paragraph = document.querySelector("p.text");
+
+my_paragraph.addEventListener("click", changetext);
+
+function changetext () {
+  
+ 
+my_paragraph.innerHTML = "Bonjour";
+  my_paragraph.style.color = "blue";
+  
+}
+
+
+
+
+
+
+
+
