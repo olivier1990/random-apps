@@ -2591,3 +2591,82 @@ linkedlist.insert_at(my_newest_node)
 
 
 
+
+
+// 10-05-2022
+
+let linkedlist = {
+  head: {
+    value: "je suis le premier node, la 'head'",
+    next: {
+      value: "je suis le 2eme node",
+      next: {
+        value: "je suis le dernier node, le 'tail'",
+        next: null
+      }
+    }
+  }
+}
+
+linkedlist.print = function  () {
+  let current = this.head;
+  while (current) {
+    console.log(current.value);
+    current = current.next;
+  }
+}
+
+linkedlist.prepend = function (node) {
+  node.next = this.head; //l’ancienne head devient le next
+  this.head = node; //ce node est maintenant la head
+}
+
+linkedlist.append = function (node) {
+    let current = this.head;
+    while (current) {
+      if (!current.next) {
+        break;
+      }
+      current = current.next;
+    }
+    current.next = node;
+    node.next = null;
+}
+
+linkedlist.insert_at = function(place, node) {
+  if (place == 0) {
+    return this.prepend(node);
+  }
+  let curr = this.head;
+  let i = 1;
+  while(place > i) {
+    curr = curr.next;
+    i++;
+  }
+  node.next = curr.next;
+  curr.next = node;
+}
+
+let new_node = {
+  value: "Bonjour, je suis un nouveau noeud",
+  next: null
+};
+
+linkedlist.prepend(new_node);
+linkedlist.print();
+
+let my_newest_node = {
+  value: "Bonjour, je veux aller au bout",
+  next: null
+};
+
+linkedlist.append(my_newest_node);
+linkedlist.print();
+
+let my_third_node = {
+  value: "Coucou",
+  next: null
+};
+
+linkedlist.insert_at(2, my_third_node)
+linkedlist.print();
