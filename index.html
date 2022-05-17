@@ -1,99 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr_FR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Random-Code</title>
+    <meta name="description" content="Projet Jeu du bonhomme pendu wkid, Développeur web junior - PHP - MySql - Jquery - Bootstrap - HTML/CSS">
+    <meta name="author" content="http://be.linkedin.com/in/tshiauke">
+
+    <title>Projet | Jeu du bonhomme pendu | Wkid Web Developer junior</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="http://wkid.be/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="http://wkid.be/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://wkid.be/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="http://wkid.be/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://wkid.be/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="http://wkid.be/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="http://wkid.be/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="http://wkid.be/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://wkid.be/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="http://wkid.be/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://wkid.be/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="http://wkid.be/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://wkid.be/favicon/favicon-16x16.png">
+    <link rel="manifest" href="http://wkid.be/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="http://wkid.be/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/pendu-style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
 </head>
+
 <body>
-    
-
-
-    
-
-<!-- 10/05-2022 -->
-
-<!-- Exo1 Créer une liste qui a la classe ma-liste avec 5 list items dedans -->
-    
-    <ul class="ma-liste">
-      <li>Coffee</li>
-      <li>Tea</li>
-      <li>Milk</li>
-    </ul>
-    
-
-<!-- EXO 2Créer un input ayant les classes test1 et test2 ainsi que l'id super-input -->
-    
-    <input type="text" class="test1 test2" id="super-input"><br>
-    
-
-    
-    
-<!-- EXO 3 Créer un div avec la classe mon-div contenant une balise h2 avec l'id mon-titre  -->
-    
-    
-    <div class="mon-div">
-      <h2 id="mon-titre"></h2>
+    <div class="masthead">
+        <div class="container">
+            <nav class="nav">
+                <a class="nav-item" href="http://wkid.be">Accueil</a>
+                <a class="nav-item active" href="http://pendu.wkid.be">Pendu</a>
+                <a class="nav-item" href="#">Projets</a>
+            </nav>
+        </div>
     </div>
-    
+    <div class="container">
+        <div class="row game">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="page-header">
+                    <h1>Le pendu</h1>
+                </div>
+                <article class="descr">
+                    <p>Le pendu est un jeu consistant à trouver un mot en devinant quelles sont les lettres qui le composent. Le jeu se joue traditionnellement à deux, avec un papier et un crayon, selon un déroulement bien particulier. Quand le dessin est terminé on voit un bonhomme allumette qui se pend</p>
+                    <p>Source : <a href="https://fr.wikipedia.org/wiki/Le_pendu_%28jeu%29" title="description du jeu Le pendu">Wikipedia</a>
+                    </p>
+                </article>
+            </div>
+            <div class="col-md-12 col-xs-12">
+                <div class="row" id="box">
+                    <div class="col-xs-offset-4 col-xs-4">
+                        <h2 data-char="char-number" class="text-center"></h2>
+                        <div class="pendu-box">
+                            <div class="box-img">
+                                <center>
+                                    <span class="help-block" id="wrong-char">Ooops! essayez encore.</span>
+                                    <span class="help-block text-danger" id="chance-text"></span>
+                                    <div class="images">
+                                        <ul data-slide="image">
+                                            <li>
 
-<!-- // 4eme EXO -->
-<button class="my-button">Mon Bouton</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12 mot">
+                <h3 data-number="n-left" class="text-center"></h3>
+                <ul class="find" id="find-word"></ul>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-8 col-lg-offset-2 col-lg-8 lettres">
+                <div id="alphabet">
+                    <input type="button" class="btn" name="lettre" value="a">
+                    <input type="button" class="btn" name="lettre" value="b">
+                    <input type="button" class="btn" name="lettre" value="c">
+                    <input type="button" class="btn" name="lettre" value="d">
+                    <input type="button" class="btn" name="lettre" value="e">
+                    <input type="button" class="btn" name="lettre" value="f">
+                    <input type="button" class="btn" name="lettre" value="g">
+                    <input type="button" class="btn" name="lettre" value="h">
+                    <input type="button" class="btn" name="lettre" value="i">
+                    <input type="button" class="btn" name="lettre" value="j">
+                    <input type="button" class="btn" name="lettre" value="k">
+                    <input type="button" class="btn" name="lettre" value="l">
+                    <input type="button" class="btn" name="lettre" value="m">
+                    <input type="button" class="btn" name="lettre" value="n">
+                    <input type="button" class="btn" name="lettre" value="o">
+                    <input type="button" class="btn" name="lettre" value="p">
+                    <input type="button" class="btn" name="lettre" value="q">
+                    <input type="button" class="btn" name="lettre" value="r">
+                    <input type="button" class="btn" name="lettre" value="s">
+                    <input type="button" class="btn" name="lettre" value="t">
+                    <input type="button" class="btn" name="lettre" value="u">
+                    <input type="button" class="btn" name="lettre" value="v">
+                    <input type="button" class="btn" name="lettre" value="w">
+                    <input type="button" class="btn" name="lettre" value="x">
+                    <input type="button" class="btn" name="lettre" value="y">
+                    <input type="button" class="btn" name="lettre" value="z">
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-<!-- 5eme EXO -->
-<button class="button02">Changer texte et couleur</button>
-
-<p class="text"> Ceci est un texte a modifié</p>
-
-
-
-
-
-<!-- Capturer le double click sur un bouton, changer le texte du bouton au click -->
-
-
-
-<!-- Capturer le click sur un bouton, récupérer la valeur d’un input et l’afficher -->
-<!-- comme texte du bouton -->
-
-
-
-
-<!-- Capturer un blur sur un input, ajouter le contenu de l’input dans un -->
-<!-- paragraphe et vider l’input -->
-<!-- => concatener les valeurs dans le paragraphe au lieu de l’effacer -->
-
-
-
-<!-- 9eme EXO -->
-<!-- Changer la couleur de fond du body lors d’un mouseenter sur bouton -->
-
-
-
-<button class="mouse-enter">Mouse-Enter</button>
-
-
-
-<!-- Changer la couleur du texte du body en fonction d’une valeur fournie par -->
-<!-- l’utilisateur -->
-
-<br>
-<br>
-
-
-<form>
-    <input type="text" class="color-input"><br>
-    <input type="submit" value="Submit">
-</form> 
-
-
-
-
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/words.js"></script>
 
 </body>
 
-<script src="script.js"></script>
 </html>
