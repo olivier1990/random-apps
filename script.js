@@ -1,5 +1,5 @@
 
-// Pendu
+// Pendu 17/05/2022
 let my_button = document.querySelector(".button65");
 
 my_button.addEventListener("click", simpleclick);
