@@ -17,6 +17,8 @@
 
 // 31-05-2022
 
+// Lectures et Ecritures de fichiers
+
 // Lire un fichier qui contient une suite de nombres séparés par un ; et les afficher (exercice avancé : sans utiliser de .split(";"))
 // En partant de l'ex. précédent : Trier la liste de nombres et l'afficher (avancé : proposer à l'utilisateur de choisir son type de tri)
 // En partant de l'ex. précédent : Sauvegarder la liste trié pour permettre à l'utilisateur de la télécharger (avancé : permettez à l'utilisateur de choisir le nom du fichier & le séparateur voulu)
@@ -24,7 +26,22 @@
 // En partant de l'exercice du pendu, permettez à l'utilisateur de télécharger le score de sa partie : (#nb d'essai, mot à trouver, lettres essayées etc)
 
 
+// Lecture
+// Grâce au FileReader, et de manière asynchrone
+// const reader = new FileReader();
+// reader.onload = function contenu_charger() {
+//  console.log(reader.result);
+// };
+// reader.readAsText(this.files[0]);
 
+
+// Ecriture
+// function generate(text, name, type = 'text/plain') {
+//  let link_to_download = document.querySelector("a#download");
+//  let file = new Blob([text], {type: type});
+//  link_to_download.href = URL.createObjectURL(file);
+//  link_to_download.download = name;
+// }
 
 
 //mise en variable de l'input file ainsi que du bouton download
