@@ -17,7 +17,13 @@
 
 // 31-05-2022
 
-// Grâce au FileReader, et de manière asynchrone
+// Lire un fichier qui contient une suite de nombres séparés par un ; et les afficher (exercice avancé : sans utiliser de .split(";"))
+// En partant de l'ex. précédent : Trier la liste de nombres et l'afficher (avancé : proposer à l'utilisateur de choisir son type de tri)
+// En partant de l'ex. précédent : Sauvegarder la liste trié pour permettre à l'utilisateur de la télécharger (avancé : permettez à l'utilisateur de choisir le nom du fichier & le séparateur voulu)
+// En partant de l'exercice du pendu, permettez à l'utilisateur de mettre en ligne une liste de mots à utiliser aléatoirement
+// En partant de l'exercice du pendu, permettez à l'utilisateur de télécharger le score de sa partie : (#nb d'essai, mot à trouver, lettres essayées etc)
+
+
 
 
 
