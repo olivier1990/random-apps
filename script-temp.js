@@ -1642,7 +1642,7 @@ function addNumber (addNumber, let case='';){
     // '' ou ' '
     if(''){
         // Ajouter un nombre dans une case vide += ou push
-        addNumber = case.push ;
+        addNumber = case.push;
     }
 }
 

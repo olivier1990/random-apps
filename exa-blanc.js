@@ -1,90 +1,11 @@
 
-// Pendu 17/05/2022
-
-// let my_button = document.querySelector(".button65");
-
-// my_button.addEventListener("click", simpleclick);
-
-// function simpleclick () {
-//   let input = document.querySelector("input");
-  
-//   this.innerHTML = input.value
-//   input.value = ""
-// }
-
-// let array = ['a', 'l', 'g', 'o']
-
-
-// 31-05-2022
-
-// Lectures et Ecritures de fichiers
-
-// Lire un fichier qui contient une suite de nombres séparés par un ; et les afficher (exercice avancé : sans utiliser de .split(";"))
-// En partant de l'ex. précédent : Trier la liste de nombres et l'afficher (avancé : proposer à l'utilisateur de choisir son type de tri)
-// En partant de l'ex. précédent : Sauvegarder la liste trié pour permettre à l'utilisateur de la télécharger (avancé : permettez à l'utilisateur de choisir le nom du fichier & le séparateur voulu)
-// En partant de l'exercice du pendu, permettez à l'utilisateur de mettre en ligne une liste de mots à utiliser aléatoirement
-// En partant de l'exercice du pendu, permettez à l'utilisateur de télécharger le score de sa partie : (#nb d'essai, mot à trouver, lettres essayées etc)
-
-
-// Lecture
-// Grâce au FileReader, et de manière asynchrone
-// const reader = new FileReader();
-// reader.onload = function contenu_charger() {
-//  console.log(reader.result);
-// };
-// reader.readAsText(this.files[0]);
-
-
-// Ecriture
-// function generate(text, name, type = 'text/plain') {
-//  let link_to_download = document.querySelector("a#download");
-//  let file = new Blob([text], {type: type});
-//  link_to_download.href = URL.createObjectURL(file);
-//  link_to_download.download = name;
-// }
-
-
-// //mise en variable de l'input file ainsi que du bouton download
-// let input_file = document.querySelector('#file-input');
-// let download_btn = document.querySelector('button.download');
-
-// //ajout d'event listeners
-// input_file.addEventListener('change', file_changed);
-// download_btn.addEventListener('click', download);
-
-// //cette fonction est appellée dès que le fichier est changé
-// function file_changed() {
-//   if (this.files.length === 0) {
-//     console.log('Pas de fichier sélectionné');
-//     return;
-//   }
-
-//   const reader = new FileReader();
-//     reader.onload = function contenu_charger() {
-//     //ce résultat est appellé lorsque le contenu du fichier uploadé est chargé
-//     console.log(reader.result);
-//   };
-//   reader.readAsText(this.files[0]); //on va récupérer le fichier dans l'input avec this.files[0] car on peut potentiellement upload plusieurs fichiers d'un coup
-// }
-
-// //prend 3 parametres : le text, le nom du fichier et son type (par defaut text/plain)
-// function generate(text, name, type = 'text/plain') {
-//    let link_to_download = document.querySelector("a#download");
-//    let file = new Blob([text], {type: type});
-//    link_to_download.href = URL.createObjectURL(file);
-//    link_to_download.download = name;
-// }
-
-// //appellée au click du bouton "Créer le fichier"
-// function download() {
-//    generate('test', 'test.txt', 'text/plain');
-// }
-
 
 // Examen blanc
 // Partie Théorie :
 
 // 1. Citez les différences majeures entre un tri à bulle et un tri par sélection
+
+// Si on arrête le tri a 50% du chargement alors le tri par selection commence par le début du tableau et par le tri à bulle par la fin 
 
 // Tous les 2 utilisent une variables temporaires
 // Le tris à bulles va accéder une array de maniere consécutives et changer la données si il le faut
@@ -97,6 +18,8 @@
 // 3. Quelle est la complexité ( O(...) ) d’un ajout de nœud en début de liste chaînée?
 
 // L'ajout de données en HEAD se fait l'une à la suite de l'autre on ne pourra pas choisir de position comme dans une array.
+// Dans le cas où l'on a 10 données il sera O1 avec les listes chainées et O10 avec une array 
+
 
 // 4. En quoi cela diffère pour un tableau? Expliquez pourquoi.
 
@@ -105,49 +28,64 @@
 
 
 // 5. Que vaut 4096 % 50 ?
-// 81
+// 46  puisque (81*50)= 4050 - 4096 = 46
 
 // 6. Que vaut 13 % 841.598.113 ?
-// 0
+// 13 puisque 841.598.113 rentre 0 fois dans 13  et le reste 0 + 13 = 13
 
 
 // 7. Corrigez, commentez et améliorez le code suivant
-
 //je veux trouver les occurrences d’un nombre dans un tableau
-function zzz (a, b) {
-let occ = 0;
-for (i=0; i<a; i++) {
-if (a[i] == b[i]) {
-occurences = occurences+1;
-}
-return occurences;
-}}
+
+// function zzz (a, b) {
+// let occ = 0;
+// for (i=0; i<a; i++) {
+// if (a[i] == b[i]) {
+// occurences = occurences+1;
+// }
+// return occurences;
+// }}
 
 
-// Correction
-
-
-function occurence (a, b) {   // Mettre un nom de fonction qui a du sens par a rapport a sont utilité
-  let occurences = 0;                // occurences au lieu de occ
-  for (i=0; i<a; i++) {
-    if (a[i] == b[i]) {
-    occurences = occurences+1;
-    }
-  return occurences;
-  }}
-
-
+// CORRECTION
+// function occurence (array1, array2) {   // Mettre un nom de fonction qui a du sens par a rapport a sont utilité et renommé les arguments/variables
+//   let occurences = 0;                // occurences au lieu de occ
+//   for (i=0; i<array1; i++) {
+//     if (array1[i] == array2[i]) {
+//     occurences = occurences+1;
+//     }
+//   return occurences;
+//   }}
 
 
 
 
-  // Partie Pratique :
 
+
+// Partie Pratique :
 
 // 1. Réalisez le code nécessaire pour détecter le plus petit nombre, le plus grand, les nombres
 // pairs et impairs dans un tableau. Renvoyez les résultats sous forme de dictionnaire
 // Entrée : [1, 4, 8, 12, 9]
 // Résultat : {pluspetit : 1, plusgrand: 12, pairs: [4,8,12], impairs: [1, 9]}
+
+
+// let data = [1, 4, 8, 12, 9];
+// let min = 0;
+
+
+
+// if(min <= max){
+
+
+// }
+
+// let results = [
+//   {pluspetit : 1,
+//      plusgrand: 12,
+//       pairs: [4,8,12],
+//        impairs: [1, 9]}
+// ]
 
 
 
@@ -158,8 +96,65 @@ function occurence (a, b) {   // Mettre un nom de fonction qui a du sens par a r
 // dans une balise de votre choix.
 
 
+
+// let my_button = document.querySelector("submit");
+
+// my_button.addEventListener("click", simpleclick);
+
+
+// function simpleclick () {
+//   let input_client = document.querySelector("input");
+  
+  
+// console.log('Unsorted', input_client);               
+// for(let i=0; i<input_client.length-1; i++) {           
+//   for(let j=0; j<input_client.length-i-1; j++) {     
+    
+//     console.log('i:', i,'j:', j);               
+//     if (input_client[j] > input_client[j+1]) {            
+      
+//       let temp = input_client[j];                    
+//       input_client[j] = input_client[j+1];                  
+//       input_client[j+1] = temp;                      
+//       console.log('swap', input_client);             
+//     }
+//   }
+// }
+// console.log('Sorted', input_client);        
+// }
+
+
+
+      
+
+
+
 // 3. Réalisez le code nécessaire pour inverser un tableau, vous n’avez pas le droit d’utiliser
 // array.reverse(), ni array.unshift(), ni array.push() ni le droit de créer un autre tableau.
+
+
+
+
+
+    // let myArray = [5,3,8,1];    
+                            
+    // for(let i=0; i<myArray.length; i++) {           
+    //   for(let j=0; j<myArray.length; j++) {     
+        
+                    
+    //     if (myArray[j] > myArray[j+1]) {            
+          
+    //       let temp = myArray[j];    
+    //       myArray[j] = myArray[j];        
+
+    //       myArray[j] = temp;     
+
+                  
+    //     }
+    //   }
+    // }
+    // console.log('inverser', myArray); 
+
 
 
 // 4. Réalisez le code nécessaire pour trouver et compter toutes les occurrences d’une chaîne
@@ -167,6 +162,9 @@ function occurence (a, b) {   // Mettre un nom de fonction qui a du sens par a r
 // fonctions split(), contains(), indexOf() et match().
 // Entrée :[‘un grand hibou gris’], “gr”
 // Résultat: 2
+
+let myArray = ['un grand hibou gris'], 'gr';
+
 
 
 
@@ -176,6 +174,7 @@ function occurence (a, b) {   // Mettre un nom de fonction qui a du sens par a r
 // entier 20 => 20 / (2+ 0) = 10, 21 => 21 / (2+1) = 7, 48 => 48 / (4 + 8) = 4, etc
 // Attention : Le calcul du dividende (2 + 0) doit être fait de manière récursive
 // Indice : (Math.floor(x) => vous renvoie l’entier inférieur le plus proche de x)
+
 // Bonus : Déterminez ensuite si le résultat de la division est elle-même un nombre d’Harshad.
 // Renvoyez dans ce cas à l’utilisateur la profondeur d’Harshad déterminée
 // Ex :
