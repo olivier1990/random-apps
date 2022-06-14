@@ -163,7 +163,7 @@
 // Entrée :[‘un grand hibou gris’], “gr”
 // Résultat: 2
 
-let myArray = ['un grand hibou gris'], 'gr';
+// let myArray = ['un grand hibou gris'], 'gr';
 
 
 
