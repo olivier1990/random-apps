@@ -63,6 +63,7 @@ function file_changed() {
     reader.onload = function contenu_charger() {
     //ce résultat est appellé lorsque le contenu du fichier uploadé est chargé
     console.log(reader.result);
+    generate(reader.result, 'notdata.txt')
   };
   reader.readAsText(this.files[0]); //on va récupérer le fichier dans l'input avec this.files[0] car on peut potentiellement upload plusieurs fichiers d'un coup
 }
@@ -77,5 +78,5 @@ function generate(text, name, type = 'text/plain') {
 
 //appellée au click du bouton "Créer le fichier"
 function download() {
-   generate('test', 'test.txt', 'text/plain');
+   generate('abc', 'data.txt', 'text/plain');
 }
