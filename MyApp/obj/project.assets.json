@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\wamp64\\www\\random-apps\\myapp\\MyApp.csproj",
+      "projectUniqueName": "C:\\wamp64\\www\\random-apps\\MyApp\\MyApp.csproj",
       "projectName": "MyApp",
-      "projectPath": "C:\\wamp64\\www\\random-apps\\myapp\\MyApp.csproj",
+      "projectPath": "C:\\wamp64\\www\\random-apps\\MyApp\\MyApp.csproj",
       "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
-      "outputPath": "C:\\wamp64\\www\\random-apps\\myapp\\obj\\",
+      "outputPath": "C:\\wamp64\\www\\random-apps\\MyApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

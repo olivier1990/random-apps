@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 
 // See https://aka.ms/new-console-template for more information
 // Console.WriteLine("Hello, World!");
@@ -390,29 +390,29 @@ using System;
 // Exemple Enum   https://www.youtube.com/watch?v=Zx-szQqeBXU
 
 
-public enum ProductCodes{
-   Milk = 0,
-   Juice = 1,
-   Tea = 2
-}
-class Program{
-   static void  Main(string[] args){
-      ProductCodes test = ProductCodes.Milk;
-      Console.WriteLine((int)test);
+// public enum ProductCodes{
+//    Milk = 0,
+//    Juice = 1,
+//    Tea = 2
+// }
+// class Program{
+//    static void  Main(string[] args){
+//       ProductCodes test = ProductCodes.Milk;
+//       Console.WriteLine((int)test);
 
-      int test2 = 1;
-      Console.WriteLine((ProductCodes)test2);
+//       int test2 = 1;
+//       Console.WriteLine((ProductCodes)test2);
 
 
-      Console.WriteLine(test.ToString());
+//       Console.WriteLine(test.ToString());
 
-      // Convert string to enum
-      string test3 = "tea";
-      ProductCodes getParse;
-      bool checkParse = Enum.TryParse(test3, out getParse);
-      Console.WriteLine(getParse);
-   }
-}
+//       // Convert string to enum
+//       string test3 = "tea";
+//       ProductCodes getParse;
+//       bool checkParse = Enum.TryParse(test3, out getParse);
+//       Console.WriteLine(getParse);
+//    }
+// }
 
 // Les Methodes
 // EXO
@@ -754,125 +754,125 @@ class Program{
 
 // HiddenWord
 
-public class Letter {
-    private char _value;
-    private bool _hidden;
-    public Letter(char value) {
-        this._value = value;
-        this._hidden = (value == ' ') ? false : true;
-    }
-    public char Value {
-        get {
-            return this._value;
-        }
-    }
-    public bool Hidden {
-        get {
-            return this._hidden;
-        }
-    }
-    public bool Unhide() {
-        if (!this._hidden) return false;
-        this._hidden = false;
-        return true;
-    }
+// public class Letter {
+//     private char _value;
+//     private bool _hidden;
+//     public Letter(char value) {
+//         this._value = value;
+//         this._hidden = (value == ' ') ? false : true;
+//     }
+//     public char Value {
+//         get {
+//             return this._value;
+//         }
+//     }
+//     public bool Hidden {
+//         get {
+//             return this._hidden;
+//         }
+//     }
+//     public bool Unhide() {
+//         if (!this._hidden) return false;
+//         this._hidden = false;
+//         return true;
+//     }
 
-    public bool Hide() {
-        if (this._hidden) return false;
-        this._hidden = true;
-        return true;
-    }
-}
-public class HiddenWord {
-    public List<Letter> value;
-    public HiddenWord(string[] words) {
-        this.value = new List<Letter>{};
-        string word = HiddenWord.PickRandomWord(words);
-        foreach (char c in word) {
-            this.value.Add(new Letter(c));
-        }
-    }
-    public static string PickRandomWord(string[] words) {
-        Random rnd = new Random();
-        return words[rnd.Next(0, words.Length)];
-    }
-    public bool attempt(char c) {
-        bool ret = false;
-        foreach (Letter l in this.value) {
-            if (Char.ToLower(c) == Char.ToLower(l.Value)) {
-                if (l.Unhide()) ret = true;
-            }
-        }
-        return ret;
-    }
-    public bool isFullyUnhidden() {
-        foreach (Letter l in this.value) {
-            if (l.Hidden) return false;
-        }
-        return true;
-    }
-    public override string ToString()
-    {
-        string ret = "";
-        foreach(Letter l in this.value) {
-            ret += (l.Hidden) ? "_" : l.Value;
-        }
-        return ret;
-    }
-}
-class Game {
-    public HiddenWord word;
-    private int _turn;
-    private int _failures;
-    private int _successes;
-    public Game() {
-        word = new HiddenWord(new string[]{
-            "Programmation",
-            "Espace",
-            "De Spiegelaere",
-            "Elon Musk",
-            "Francois Damien",
-            "Ordinateur",
-            "Age Of Empire 3",
-            "Game Of Thrones",
-            "Salle de bain"
-            });
-        this._turn = 0;
-        this._failures = 0;
-        this._successes = 0;
-    }
-    public int Turn {
-        get {
-            return this._turn;
-        }
-    }
-    public void Play() {
-        while (!word.isFullyUnhidden()) {
-            Console.Clear();
-            Console.WriteLine(String.Format("{0}. MOT CACHE : [{1}]", this._turn, this.word));
-            Console.WriteLine("Entrez un caractère : ");
-            char input = Console.ReadKey().KeyChar;
-            Console.WriteLine();
-            if (word.attempt(input)) {
-                this._successes++;
-                Console.WriteLine("Bravo !");
-            } else {
-                this._failures++;
-                Console.WriteLine("Dommage !");
-            }
-            this._turn++;
-        }
-        Console.Clear();
-        Console.WriteLine(String.Format("Félicitation, le mot était bien [{0}]. Vous avez trouvé en {1} tour(s)({2}% succes, {3}% echec)", this.word, this._turn, Math.Round(((double)this._successes / this._turn) * 100), Math.Round(((double)this._failures / this._turn) * 100)));
-    }
-}
+//     public bool Hide() {
+//         if (this._hidden) return false;
+//         this._hidden = true;
+//         return true;
+//     }
+// }
+// public class HiddenWord {
+//     public List<Letter> value;
+//     public HiddenWord(string[] words) {
+//         this.value = new List<Letter>{};
+//         string word = HiddenWord.PickRandomWord(words);
+//         foreach (char c in word) {
+//             this.value.Add(new Letter(c));
+//         }
+//     }
+//     public static string PickRandomWord(string[] words) {
+//         Random rnd = new Random();
+//         return words[rnd.Next(0, words.Length)];
+//     }
+//     public bool attempt(char c) {
+//         bool ret = false;
+//         foreach (Letter l in this.value) {
+//             if (Char.ToLower(c) == Char.ToLower(l.Value)) {
+//                 if (l.Unhide()) ret = true;
+//             }
+//         }
+//         return ret;
+//     }
+//     public bool isFullyUnhidden() {
+//         foreach (Letter l in this.value) {
+//             if (l.Hidden) return false;
+//         }
+//         return true;
+//     }
+//     public override string ToString()
+//     {
+//         string ret = "";
+//         foreach(Letter l in this.value) {
+//             ret += (l.Hidden) ? "_" : l.Value;
+//         }
+//         return ret;
+//     }
+// }
+// class Game {
+//     public HiddenWord word;
+//     private int _turn;
+//     private int _failures;
+//     private int _successes;
+//     public Game() {
+//         word = new HiddenWord(new string[]{
+//             "Programmation",
+//             "Espace",
+//             "De Spiegelaere",
+//             "Elon Musk",
+//             "Francois Damien",
+//             "Ordinateur",
+//             "Age Of Empire 3",
+//             "Game Of Thrones",
+//             "Salle de bain"
+//             });
+//         this._turn = 0;
+//         this._failures = 0;
+//         this._successes = 0;
+//     }
+//     public int Turn {
+//         get {
+//             return this._turn;
+//         }
+//     }
+//     public void Play() {
+//         while (!word.isFullyUnhidden()) {
+//             Console.Clear();
+//             Console.WriteLine(String.Format("{0}. MOT CACHE : [{1}]", this._turn, this.word));
+//             Console.WriteLine("Entrez un caractère : ");
+//             char input = Console.ReadKey().KeyChar;
+//             Console.WriteLine();
+//             if (word.attempt(input)) {
+//                 this._successes++;
+//                 Console.WriteLine("Bravo !");
+//             } else {
+//                 this._failures++;
+//                 Console.WriteLine("Dommage !");
+//             }
+//             this._turn++;
+//         }
+//         Console.Clear();
+//         Console.WriteLine(String.Format("Félicitation, le mot était bien [{0}]. Vous avez trouvé en {1} tour(s)({2}% succes, {3}% echec)", this.word, this._turn, Math.Round(((double)this._successes / this._turn) * 100), Math.Round(((double)this._failures / this._turn) * 100)));
+//     }
+// }
 
-class Prog {
-    static void Main(string[] args) {
-        Game game = new Game();
-        game.Play();
-    }
-}
+// class Prog {
+//     static void Main(string[] args) {
+//         Game game = new Game();
+//         game.Play();
+//     }
+// }
 
 
 
@@ -1041,3 +1041,338 @@ class Prog {
 
 
 
+
+
+
+
+// backup
+ 
+    // // Array avec les mots a trouver
+    // // string[] words = {"olivier", "michel", "seb"};
+    // string[] words = {"olivier"};
+    // // Nombres de vie
+    // int lives = 5;
+    // // Lettres du mot qu'il reste a deviné.
+    // int charCounter = 0;
+
+    // static void PrintMessages() 
+    // {
+    //     //   Console.WriteLine("I just got executed!");
+        
+    // }
+    
+    // public static void Main(string[] args) {
+
+    //     Pendu myObj = new Pendu();
+        
+    //     string[] words = myObj.words;
+    //     int lives = myObj.lives;
+    //     int charCounter = myObj.charCounter;
+
+
+
+
+
+// NEW FULL BACKUP 14/10/2022 20:01
+
+// See https://aka.ms/new-console-template for more information
+
+//////////////
+/// PENDU ///
+/////////////
+
+
+// // Pour le REGEX
+// using System.Text.RegularExpressions;
+
+
+
+// public class Pendu{
+    
+
+//     // static void RandomWord() {
+
+      
+
+//     // } 
+
+    
+//     // Array avec les mots a trouver
+//     // string[] words = {"olivier", "michel", "seb"};
+//     string[] words = {"olivier"};
+//     // Nombres de vie
+//     int lives = 5;
+//     // Lettres du mot qu'il reste a deviné.
+//     int charCounter = 0;
+
+//     public static void PrintLetter() 
+//     {
+
+//         ///
+//         // Visuel du mot a trouver
+//         ///
+
+//         Pendu myObj = new Pendu();
+//             string WordToGuess = myObj.WordToGuess;
+//             int charCounter = myObj.charCounter;
+//             var letters = new List<string>();
+                
+//             // Boucle chaque lettre du WordToGuess
+//             foreach (var character in WordToGuess)
+//             {
+//                 // Lettre transformé en string
+//                 var letter = character.ToString();
+                
+//                 // On print la lettre si elle est dans l'array
+//                 if (letters.Contains(letter))
+//                 {
+//                     Console.Write(letter);
+//                 }
+//                 else
+//                 {
+//                     // Les vides on ajoute _
+//                     Console.Write("_");
+//                     // On ajoute 1 par nombre de _ restant
+//                     charCounter++;
+//                 }
+//             }
+        
+//     }
+    
+//     public static void Main(string[] args) {
+
+//         Pendu myObj = new Pendu();
+        
+//         string[] words = myObj.words;
+//         int lives = myObj.lives;
+    
+        
+//         // Prendre un mot random de l'array words
+//         string WordToGuess = words[new Random().Next(0, words.Length - 1)];
+        
+//         // TOFIX n'accepte pas encore les mots/noms avec majuscules, espaces aussi ?
+//         // Limite userInput au charactères  a-z
+//         var validCharacters = new Regex("^[a-z]$");
+        
+//         // Collection qui contient les lettres envoyer du client userInput, s'appellera key plus tard
+       
+
+//         // Tant qu'il y ait des vies on continue
+//         while (lives != 0)
+//         {
+//             int charCounter = myObj.charCounter;
+//             var letters = myObj.letters;
+
+//             PrintLetter();
+           
+//             Console.WriteLine(string.Empty);
+
+//             // Arrête la boucle si il ne reste pas de charactères
+//             if (charCounter == 0)
+//             {
+//                 break;
+//             }
+
+
+//             // input Client de la lettre
+//             Console.Write("Vous avez Entrez la lettre ");
+
+//             // key contient la lettre input par le client convertit en minuscule (ToLower())
+//             // Console.ReadKey obtient prochain charactères ou fonction appuyer par l'utilisateur
+//             var key = Console.ReadKey().Key.ToString().ToLower();
+
+//             // Si on utilise pas ceci on a un doublon au niveau des lettres trouvés (liés au Console.WriteLine)
+//             Console.WriteLine(string.Empty);
+
+
+
+
+//             // Si elle ne respecte pas les règles regex 
+//             if (!validCharacters.IsMatch(key))
+//             {
+
+//                 //  charactères invalide (chiffres etc..)
+//                 Console.WriteLine($"\n\nLa lettre {key} est invalide. Réessayer.");
+//                 // continue permet de continuer la boucle, break la stop
+//                 continue;
+//             }
+
+
+//             // SI tu as déja entré cette lettre
+//             if (letters.Contains(key))
+//             {
+                
+//                 Console.WriteLine("\n\nVous avez déja entrer cette lettre");
+//                 continue;
+//             }
+
+//             // Ajoute la lettre de l'input user si elle n'est pas encore intégrer
+//             letters.Add(key);
+
+//             // On enlève une vie si on se trompe de lettre
+//             // SI différent de WordToGuess alors
+//             if (!WordToGuess.Contains(key))
+//             {
+//                 lives--;
+
+//                 // Si il reste des vies on le montre
+//                 if (lives > 0)
+//                 {
+//                     Console.WriteLine($"\n\nLa lettre {key} n'est pas dans le mot. Vous avez {lives} vie restante.");
+//                 }
+//             }
+//         }
+
+//         // Messages lorsqu'on a gagné
+//         if (lives > 0)
+//         {
+//             // print message gagné + vie restante
+//             Console.WriteLine($"\n\nVous avez gagné avec {lives} vie restante!");
+//         }
+//         else
+//         {
+//             // Message Perdu
+//             Console.WriteLine($"\n\nVous avez perdu le mot était '{WordToGuess}'.");   
+//         }
+
+//     }
+
+    
+
+// }
+
+
+
+
+
+// // using System;
+
+// namespace NewConsoleApp
+// {
+//     public class Program
+//     {
+//         // Une méthode qui détient le même nom que la classe 
+//         // est son constructeur
+//         public Program()
+//         {
+            
+//         }
+//         private static void Main(string args){
+//             Book book1;
+//             book1.Name = "livre 1";
+
+//             Book book2 = book1;
+//             book2.Name = "livre 2";
+//             Console.WriteLine(book1.Name);
+
+//             Voiture voiture1 = new Voiture();
+//             voiture1.Name = "v1";
+//             Voiture voiture2 = voiture1;
+//             voiture2.Name = "v2";
+
+
+//             Console.WriteLine(voiture1.Name);
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+//     class test 
+//     {
+//         public string Name ;
+//         public string LastName ;
+//         DateTime BirthDate ;
+
+//             static void Main()
+//             {
+                
+//             }
+
+//     }
+
+
+// class Programs
+// {
+//   static void Main(string[] args)
+//   {
+//     Person myObj = new Person();
+//     myObj.LastName = "Liam";
+//     Console.WriteLine(myObj.LastName);
+//   }
+// }
+
+
+
+
+class program {  
+    static void Main (string[] args)
+  {
+     
+    List<Person> listPerson = new List<Person>();
+    
+
+    List<CurrentAccount> listCurrentAccount = new List<CurrentAccount>();
+  
+
+    List<Bank> listBank = new List<Bank>();
+     
+    // Create random firstname+lastname
+    for (int i = 0; i < 10; i++)
+    {
+        Random random = new Random();
+        int rand = random.Next(1,100);
+        listPerson.Add( new Person($"firstname {rand}", $"lastname {rand}",DateTime.Now));
+    }
+
+    // New Account
+    for (int i = 0; i < 10; i++)
+    {
+        listCurrentAccount.Add(new CurrentAccount($"100{i}", 100, 100, listPerson[i]));
+    }
+    // New bank
+    for (int i = 0; i < 2; i++)
+    {
+        listBank.Add(new Bank($"bank {i+1} => "));
+    }
+
+    // View Bank
+    for (int i = 0; i < listBank.Count; i++)
+    {
+        if(i == 0)
+        {
+            for (int j = 0; j < listCurrentAccount.Count - listCurrentAccount.Count/2; j++)
+            {
+                listBank[i].AddAccount(listCurrentAccount[j]);
+            }
+        }
+        if (i == 1)
+        {
+            for (int j = listCurrentAccount.Count/2; j < listCurrentAccount.Count; j++)
+            {
+                listBank[i].AddAccount(listCurrentAccount[j]);
+            }
+        }
+
+
+    }
+
+    foreach (Bank bank in listBank)
+    {
+        Console.WriteLine(bank.Name);
+        foreach (KeyValuePair<string,Account> account in bank.Accounts)
+        {
+            Random random = new Random();
+            int rand = random.Next(1, 5000);
+            account.Value.Deposit(rand);
+            account.Value.ApplyInterest();
+            Console.WriteLine($" le compte numero : {account.Key} appartient a  {account.Value.Owner.FirstName} {account.Value.Owner.LastName} => solde = {account.Value.Balance} $");
+        }
+    }
+        
+}
+}
